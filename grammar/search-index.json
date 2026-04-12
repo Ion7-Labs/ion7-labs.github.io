@@ -104,7 +104,7 @@
 {"name":"Backtrack:is_done","module":"runtime.backtrack","href":"runtime_backtrack.html#Backtrack_is_done","desc":"Return whether generation is complete."},
 {"name":"Backtrack:last_checkpoint","module":"runtime.backtrack","href":"runtime_backtrack.html#Backtrack_last_checkpoint","desc":"Return the last checkpoint index for a symbol."},
 {"name":"Backtrack:n_tokens","module":"runtime.backtrack","href":"runtime_backtrack.html#Backtrack_n_tokens","desc":"Number of tokens generated so far."},
-{"name":"Backtrack:constrain","module":"runtime.backtrack","href":"runtime_backtrack.html#Backtrack_constrain","desc":"Apply a semantic constraint at the current position (CRANE pattern)."},
+{"name":"Backtrack:constrain","module":"runtime.backtrack","href":"runtime_backtrack.html#Backtrack_constrain","desc":"Apply a semantic constraint at the current position (CRANE pattern).  If the ..."},
 {"name":"Backtrack:run","module":"runtime.backtrack","href":"runtime_backtrack.html#Backtrack_run","desc":"Run a complete constrained generation loop with automatic backtracking."},
 {"name":"DCCD.new","module":"runtime.dccd","href":"runtime_dccd.html#DCCD_new","desc":"Create a DCCD generator."},
 {"name":"DCCD:_run_pass","module":"runtime.dccd","href":"runtime_dccd.html#DCCD__run_pass","desc":""},

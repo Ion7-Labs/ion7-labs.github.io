@@ -231,7 +231,13 @@ Saves a KV snapshot at the current position and associates it with a name.</p>
 <div class="fn-divider"></div>
 <div id="Backtrack_constrain" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Backtrack:constrain</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Apply a semantic constraint at the current position (CRANE pattern).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Apply a semantic constraint at the current position (CRANE pattern).
+
+If the validator fails on the current text, rolls back to the last
+checkpoint for `symbol` and re-runs `forward` (using `opts.forward_pred`
+and `opts.max_forward`) before re-validating.  This mirrors how `run()`
+uses constrain: checkpoint → forward → constrain, so retries must repeat
+the forward pass to produce a complete new candidate.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Backtrack:constrain</span><span class="text-zinc-700">(</span><span class="text-zinc-500">symbol, validator, opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">symbol</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Checkpoint symbol to backtrack to on failure.</span></div>
@@ -248,7 +254,7 @@ Saves a KV snapshot at the current position and associates it with a name.</p>
 <p class="text-zinc-400 text-sm leading-relaxed mb-4">Run a complete constrained generation loop with automatic backtracking.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Backtrack:run</span><span class="text-zinc-700">(</span><span class="text-zinc-500">steps</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">steps</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">Array of { symbol, until_pred, validator, max_retries }.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">steps</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">Array of step tables:</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">text  Full generated text.</span></div>
