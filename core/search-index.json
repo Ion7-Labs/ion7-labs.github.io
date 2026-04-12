@@ -56,6 +56,7 @@
 {"name":"Context:n_batch","module":"context","href":"context.html#Context_n_batch","desc":""},
 {"name":"Context:n_ubatch","module":"context","href":"context.html#Context_n_ubatch","desc":""},
 {"name":"Context:n_past","module":"context","href":"context.html#Context_n_past","desc":""},
+{"name":"Context:set_n_past","module":"context","href":"context.html#Context_set_n_past","desc":"Set the KV fill position (used after snapshot/restore to realign the Lua posi..."},
 {"name":"Context:n_ctx_seq","module":"context","href":"context.html#Context_n_ctx_seq","desc":""},
 {"name":"Context:n_seq_max","module":"context","href":"context.html#Context_n_seq_max","desc":""},
 {"name":"Context:n_threads","module":"context","href":"context.html#Context_n_threads","desc":""},
