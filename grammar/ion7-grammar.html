@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ion7-grammar &mdash; ion7 docs</title>
+  <script>
+    tailwind = { config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ["'JetBrains Mono'", "'Fira Code'", "ui-monospace", "monospace"],
+            sans: ["'Inter'", "system-ui", "sans-serif"],
+          }
+        }
+      }
+    }}
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html { background: #09090b; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    .fn-divider { border-top: 1px solid #1c1c1e; margin: 2rem 0; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased min-h-screen">
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-56 shrink-0 bg-zinc-950 border-r border-zinc-800/50 hidden lg:flex flex-col sticky top-0 h-screen overflow-y-auto">
+    <div class="px-4 py-4 border-b border-zinc-800/50">
+      <a href="index.html" class="flex items-center gap-1.5 group">
+        <span class="text-zinc-100 font-mono font-semibold text-sm">ion7</span>
+        <span class="text-zinc-700 font-mono text-sm">/</span>
+        <span class="text-zinc-600 font-mono text-sm">docs</span>
+      </a>
+    </div>
+    <nav class="flex-1 py-3 overflow-y-auto">
+      <div class="mb-5 px-2"><li><a href="index.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">README</a></li></div>
+<div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">grammar</p>
+  <ul class="space-y-px"><li><a href="ion7-grammar.html" class="block px-2 py-1.5 rounded text-zinc-100 bg-zinc-800/80 text-xs font-mono">ion7-grammar</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">compose</p>
+  <ul class="space-y-px"><li><a href="compose.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">compose</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">except</p>
+  <ul class="space-y-px"><li><a href="except.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">except</a></li></ul>
+</div>
+    </nav>
+    <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
+      <span class="text-zinc-700 text-xs font-mono">v2.0.0</span>
+      <a href="../" class="text-zinc-800 hover:text-zinc-500 text-xs font-mono transition-colors">&larr; home</a>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <div class="flex-1 min-w-0 flex flex-col">
+    <header class="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur border-b border-zinc-800/50 px-6 py-2 flex items-center gap-4">
+      <div class="flex items-center gap-2 text-xs font-mono text-zinc-600 shrink-0">
+        <a href="index.html" class="hover:text-zinc-400 transition-colors">ion7-grammar</a> <span class="text-zinc-800">/</span> <span class="text-zinc-500">ion7-grammar</span>
+      </div>
+      <!-- Search -->
+      <div class="flex-1 max-w-xs relative" id="search-container">
+        <input id="search-input" type="text" placeholder="Search functions..."
+          autocomplete="off" spellcheck="false"
+          class="w-full bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 focus:border-zinc-600 rounded px-3 py-1.5 text-xs font-mono text-zinc-300 placeholder-zinc-700 outline-none transition-colors" />
+        <div id="search-results"
+          class="hidden absolute top-full left-0 right-0 mt-1 bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl overflow-hidden z-50 max-h-72 overflow-y-auto">
+        </div>
+      </div>
+    </header>
+    <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
+<p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">module</p>
+<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">ion7-grammar</h1>
+<p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Grammar_obj</p>
+<div class="mb-8 bg-zinc-900/50 border border-zinc-800/60 rounded-lg overflow-hidden">
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_builder</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">any</span>
+  <span class="text-zinc-600 text-xs">Underlying Builder (nil for raw grammars created via Grammar.raw()).</span>
+</div>
+</div>
+<p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Grammar</p>
+<p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
+<div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
+<a href="#Grammar_obj__new" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj._new</a>
+<a href="#Grammar_obj_to_gbnf" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj:to_gbnf</a>
+<a href="#Grammar_obj_builder" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj:builder</a>
+<a href="#Grammar_obj_merge" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj:merge</a>
+<a href="#Grammar_obj_rules" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj:rules</a>
+<a href="#Grammar_obj_union" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj:union</a>
+<a href="#Grammar_obj_then_" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj:then_</a>
+<a href="#Grammar_obj_fuzz" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj:fuzz</a>
+<a href="#Grammar_obj_inspect" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar_obj:inspect</a>
+<a href="#Grammar_builder" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.builder</a>
+<a href="#Grammar_from_builder" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_builder</a>
+<a href="#Grammar_from_json_schema" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_json_schema</a>
+<a href="#Grammar_from_type" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_type</a>
+<a href="#Grammar_from_regex" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_regex</a>
+<a href="#Grammar_from_enum" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_enum</a>
+<a href="#Grammar_from_json_enum" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_json_enum</a>
+<a href="#Grammar_from_tools" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_tools</a>
+<a href="#Grammar_raw" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.raw</a>
+<a href="#Grammar_union" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.union</a>
+<a href="#Grammar_sequence" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.sequence</a>
+<a href="#Grammar_wrap" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.wrap</a>
+<a href="#Grammar_interleave" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.interleave</a>
+<a href="#Grammar_repeat_g" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.repeat_g</a>
+<a href="#Grammar_optional" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.optional</a>
+<a href="#Grammar_annotate" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.annotate</a>
+<a href="#Grammar_fuzz" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.fuzz</a>
+<a href="#Grammar_fuzz_one" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.fuzz_one</a>
+<a href="#Grammar_fuzz_validate" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.fuzz_validate</a>
+<a href="#Grammar_context" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.context</a>
+<a href="#Grammar_backtrack" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.backtrack</a>
+<a href="#Grammar_dccd" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.dccd</a>
+<a href="#Grammar_debug" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.debug</a>
+<a href="#Grammar_analyze" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.analyze</a>
+<a href="#Grammar_tree" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.tree</a>
+<a href="#Grammar_diff" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.diff</a>
+<a href="#Grammar_except_chars" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.except_chars</a>
+<a href="#Grammar_except_values" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.except_values</a>
+<a href="#Grammar_except_pattern" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.except_pattern</a>
+</div>
+<div id="Grammar_obj__new" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj._new</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj._new</span><span class="text-zinc-700">(</span><span class="text-zinc-500">b</span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_obj_to_gbnf" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj:to_gbnf</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Compile to GBNF string ready for llama.cpp.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj:to_gbnf</span><span class="text-zinc-700">(</span><span class="text-zinc-500">root</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500">Override root rule name.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_obj_builder" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj:builder</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the underlying Builder for manual rule manipulation.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj:builder</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Builder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_obj_merge" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj:merge</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Merge rules from another Grammar_obj into this one.
+Rules from other are added only if not already defined in self.
+Returns self (fluent, composable).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj:merge</span><span class="text-zinc-700">(</span><span class="text-zinc-500">other</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">other</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">self</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_obj_rules" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj:rules</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">List all defined rule names in definition order.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj:rules</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Array of strings.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_obj_union" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj:union</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Compose: match either this grammar or another (union).
+Returns a new Grammar_obj.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj:union</span><span class="text-zinc-700">(</span><span class="text-zinc-500">other</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">other</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_obj_then_" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj:then_</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Compose: match this grammar followed by another (sequence).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj:then_</span><span class="text-zinc-700">(</span><span class="text-zinc-500">other, sep</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">other</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">sep</span><span class="font-mono text-zinc-700 w-28 shrink-0">any?</span><span class="text-zinc-500">Optional separator AST node (e.g. Grammar.literal(",")).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_obj_fuzz" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj:fuzz</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Fuzz: generate random valid strings from this grammar.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj:fuzz</span><span class="text-zinc-700">(</span><span class="text-zinc-500">opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">{ count, seed, max_rep, max_depth }</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">samples  Array of generated strings.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">seed     RNG seed used (for reproduction).</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_obj_inspect" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar_obj:inspect</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Debug: return annotated GBNF with rule stats.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar_obj:inspect</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_builder" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.builder</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Create a new GrammarBuilder (returns Builder, not Grammar_obj).
+Use when you need fine-grained rule control.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.builder</span><span class="text-zinc-700">(</span><span class="text-zinc-500">opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">{ root = "root" }</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Builder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_builder" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_builder</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Wrap a Builder in a Grammar_obj.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_builder</span><span class="text-zinc-700">(</span><span class="text-zinc-500">b</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">b</span><span class="font-mono text-zinc-700 w-28 shrink-0">Builder</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_json_schema" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_json_schema</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from JSON Schema (draft-07 subset).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_json_schema</span><span class="text-zinc-700">(</span><span class="text-zinc-500">schema, root</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">schema</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">JSON Schema.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500">Root rule (default: "root").</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_type" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_type</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from Lua type annotation (shortest path to a grammar).
+
+Syntax: "string"|"integer"|"number"|"boolean"|"null"|"any"
+  "type?"      → optional (null|type)
+  {"type"}     → array of that type
+  {key="type"} → object (all required)
+  {["key?"]="type"} → optional field</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_type</span><span class="text-zinc-700">(</span><span class="text-zinc-500">typ, root</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">typ</span><span class="font-mono text-zinc-700 w-28 shrink-0">string|table</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_regex" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_regex</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from regex pattern (ERE subset).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_regex</span><span class="text-zinc-700">(</span><span class="text-zinc-500">pattern, root</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">pattern</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_enum" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_enum</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from value whitelist (input-dependent, longest-first).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_enum</span><span class="text-zinc-700">(</span><span class="text-zinc-500">rule_name, values</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">rule_name</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">values</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_json_enum" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_json_enum</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from JSON-quoted value whitelist.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_json_enum</span><span class="text-zinc-700">(</span><span class="text-zinc-500">rule_name, values</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">rule_name</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">values</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_tools" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_tools</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build tool-call grammar from registry.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_tools</span><span class="text-zinc-700">(</span><span class="text-zinc-500">tools</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tools</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">Array of { name, schema }.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_raw" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.raw</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Passthrough for hand-written GBNF strings.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.raw</span><span class="text-zinc-700">(</span><span class="text-zinc-500">gbnf</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">gbnf</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_union" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.union</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Union: match either grammar a or b.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.union</span><span class="text-zinc-700">(</span><span class="text-zinc-500">a, b</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">a</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">b</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_sequence" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.sequence</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Sequence: match grammar a followed by b.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.sequence</span><span class="text-zinc-700">(</span><span class="text-zinc-500">a, b, opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">a</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">b</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">{ separator = node? }</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_wrap" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.wrap</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Wrap grammar with prefix and suffix literals.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.wrap</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g, pre, suf, ws</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">pre</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">suf</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ws</span><span class="font-mono text-zinc-700 w-28 shrink-0">boolean?</span><span class="text-zinc-500">Insert whitespace padding (default: true).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_interleave" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.interleave</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Match grammar g with separator between elements.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.interleave</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g, sep, min, max</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">sep</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Separator literal.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">min</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Min elements (default: 1).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">max</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Max elements (default: unlimited).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_repeat_g" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.repeat_g</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Repeat grammar g between min and max times.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.repeat_g</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g, min, max, sep</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">min</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">max</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">sep</span><span class="font-mono text-zinc-700 w-28 shrink-0">any?</span><span class="text-zinc-500">Optional separator AST node placed between repetitions.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_optional" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.optional</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Make grammar optional.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.optional</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_annotate" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.annotate</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Annotate: rename the root rule.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.annotate</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g, name</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">name</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_fuzz" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.fuzz</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Generate random valid strings (zero LLM, instant).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.fuzz</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g, opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">{ count, seed, max_rep, max_depth, root }</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">samples  Array of generated strings.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">seed     RNG seed used (for reproduction).</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_fuzz_one" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.fuzz_one</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Generate one random valid string.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.fuzz_one</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g, opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_fuzz_validate" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.fuzz_validate</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Validate grammar produces non-empty strings.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.fuzz_validate</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g, opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">ok   true if grammar produces valid non-empty output.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string?</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">err  Error description if ok is false, otherwise nil.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_context" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.context</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Create a stateful GrammarContext (evolves with conversation).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.context</span><span class="text-zinc-700">(</span><span class="text-zinc-500">opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">{ root = "root" }</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;any</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">GrammarContext instance (see ion7.grammar.context).</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_backtrack" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.backtrack</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Create a Backtrack session (IterGen/CRANE style, KV cache rollback).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.backtrack</span><span class="text-zinc-700">(</span><span class="text-zinc-500">ctx, vocab, sampler, opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ctx</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Context (snapshot support required).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Vocab.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">sampler</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Sampler (grammar-constrained).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;any</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Backtrack instance (see ion7.grammar.backtrack).</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_dccd" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.dccd</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Draft-Conditioned Constrained Decoding (arXiv:2603.03305, Feb 2026).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.dccd</span><span class="text-zinc-700">(</span><span class="text-zinc-500">ctx, vocab, opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ctx</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Context (snapshot support required).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Vocab.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">{ draft_sampler, constrain_sampler, max_draft_tokens, max_final_tokens, ... }</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;any</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">DCCD instance (see ion7.grammar.dccd).</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_debug" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.debug</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Pretty-print grammar with rule stats.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.debug</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g, opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_analyze" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.analyze</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Structural analysis of a grammar.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.analyze</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">{ n_rules, root, unreferenced, recursive, gbnf_length }</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_tree" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.tree</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">ASCII dependency tree of rule references.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.tree</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_diff" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.diff</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Diff two grammars: show added/removed/changed rules.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.diff</span><span class="text-zinc-700">(</span><span class="text-zinc-500">g1, g2</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g1</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500">Original.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">g2</span><span class="font-mono text-zinc-700 w-28 shrink-0">Grammar_obj</span><span class="text-zinc-500">Updated.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_except_chars" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.except_chars</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Exclude chars from a class. Returns an AST node (use in builders).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.except_chars</span><span class="text-zinc-700">(</span><span class="text-zinc-500">base_spec, exclude</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">base_spec</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">exclude</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;any</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">AST char node suitable for use with Grammar.builder():rule().</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_except_values" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.except_values</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Match any value from universe except excluded ones.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.except_values</span><span class="text-zinc-700">(</span><span class="text-zinc-500">universe, exclude, name</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">universe</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">exclude</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">name</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_except_pattern" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.except_pattern</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Lua pattern validator for Backtrack:constrain() (rejects matches).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.except_pattern</span><span class="text-zinc-700">(</span><span class="text-zinc-500">pattern</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">pattern</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;function</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+    </main>
+  </div>
+</div>
+<script>
+(function() {
+  var input = document.getElementById('search-input');
+  var box   = document.getElementById('search-results');
+  if (!input || !box) return;
+
+  var index = null;
+
+  fetch('search-index.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) { index = data; })
+    .catch(function() {});
+
+  input.addEventListener('input', function() {
+    var q = input.value.trim().toLowerCase();
+    if (!index || q.length < 2) { box.classList.add('hidden'); return; }
+
+    var results = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      if (item.name.toLowerCase().indexOf(q) !== -1 ||
+          (item.desc && item.desc.toLowerCase().indexOf(q) !== -1)) {
+        results.push(item);
+        if (results.length >= 12) break;
+      }
+    }
+
+    if (results.length === 0) { box.classList.add('hidden'); return; }
+
+    var html = '';
+    for (var j = 0; j < results.length; j++) {
+      var r = results[j];
+      var hl = r.name.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'),
+               '<span class="text-zinc-100">$1</span>');
+      html += '<a href="' + r.href + '" class="flex items-baseline gap-3 px-3 py-2 hover:bg-zinc-800 border-b border-zinc-800/60 last:border-0 transition-colors">'
+            + '<span class="font-mono text-zinc-300 text-xs shrink-0">' + hl + '</span>'
+            + '<span class="text-zinc-600 text-xs truncate">' + (r.module || '') + '</span>'
+            + '</a>';
+    }
+    box.innerHTML = html;
+    box.classList.remove('hidden');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!document.getElementById('search-container').contains(e.target)) {
+      box.classList.add('hidden');
+    }
+  });
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { box.classList.add('hidden'); input.blur(); }
+  });
+})();
+</script>
+</body>
+</html>

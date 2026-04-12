@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ion7.core &mdash; ion7 docs</title>
+  <title>model.quantize &mdash; ion7 docs</title>
   <script>
     tailwind = { config: {
       theme: {
@@ -43,11 +43,11 @@
     <nav class="flex-1 py-3 overflow-y-auto">
       <div class="mb-5 px-2"><li><a href="index.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">README</a></li></div>
 <div class="mb-5 px-2">
-  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">ion7</p>
-  <ul class="space-y-px"><li><a href="ion7_core.html" class="block px-2 py-1.5 rounded text-zinc-100 bg-zinc-800/80 text-xs font-mono">core</a></li></ul>
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">core</p>
+  <ul class="space-y-px"><li><a href="ion7-core.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">ion7-core</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">model</p>
-  <ul class="space-y-px"><li><a href="model.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">model</a></li><li><a href="model_inspect.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">inspect</a></li><li><a href="model_meta.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">meta</a></li><li><a href="model_lora.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">lora</a></li><li><a href="model_quantize.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">quantize</a></li><li><a href="model_context_factory.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context_factory</a></li></ul>
+  <ul class="space-y-px"><li><a href="model.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">model</a></li><li><a href="model_inspect.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">inspect</a></li><li><a href="model_meta.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">meta</a></li><li><a href="model_lora.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">lora</a></li><li><a href="model_quantize.html" class="block px-2 py-1.5 rounded text-zinc-100 bg-zinc-800/80 text-xs font-mono">quantize</a></li><li><a href="model_context_factory.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context_factory</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">context</p>
   <ul class="space-y-px"><li><a href="context.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context</a></li><li><a href="context_decode.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">decode</a></li><li><a href="context_kv.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">kv</a></li><li><a href="context_state.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">state</a></li><li><a href="context_logits.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">logits</a></li></ul>
@@ -78,7 +78,7 @@
   <div class="flex-1 min-w-0 flex flex-col">
     <header class="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur border-b border-zinc-800/50 px-6 py-2 flex items-center gap-4">
       <div class="flex items-center gap-2 text-xs font-mono text-zinc-600 shrink-0">
-        <a href="index.html" class="hover:text-zinc-400 transition-colors">ion7-core</a> <span class="text-zinc-800">/</span> <span class="text-zinc-500">ion7.core</span>
+        <a href="index.html" class="hover:text-zinc-400 transition-colors">ion7-core</a> <span class="text-zinc-800">/</span> <span class="text-zinc-500">model.quantize</span>
       </div>
       <!-- Search -->
       <div class="flex-1 max-w-xs relative" id="search-container">
@@ -92,69 +92,23 @@
     </header>
     <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
 <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">module</p>
-<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">ion7.core</h1>
+<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">model.quantize</h1>
 <p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
 <div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
-<a href="#ion7_init" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">ion7.init</a>
-<a href="#ion7_shutdown" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">ion7.shutdown</a>
-<a href="#ion7_capabilities" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">ion7.capabilities</a>
-<a href="#ion7_time_us" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">ion7.time_us</a>
-<a href="#ion7_numa_init" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">ion7.numa_init</a>
-<a href="#ion7_reset" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">ion7.reset</a>
+<a href="#M_quantize" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.quantize</a>
 </div>
-<div id="ion7_init" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">ion7.init</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Initialize the llama.cpp backend.
-Must be called once before any model is loaded.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">ion7.init</span><span class="text-zinc-700">(</span><span class="text-zinc-500">opts</span><span class="text-zinc-700">)</span></div>
+<div id="M_quantize" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.quantize</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Quantize a model file and save the result.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.quantize</span><span class="text-zinc-700">(</span><span class="text-zinc-500">inp_path, out_path, opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">inp_path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Path to the source GGUF model.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">out_path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Output path for the quantized GGUF.</span></div>
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
 </div>
-</div>
-<div class="fn-divider"></div>
-<div id="ion7_shutdown" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">ion7.shutdown</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Release all llama.cpp resources. Call once at process exit.
-Safe to call multiple times.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">ion7.shutdown</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
-</div>
-<div class="fn-divider"></div>
-<div id="ion7_capabilities" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">ion7.capabilities</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return a table of build-time and runtime capabilities.
-Downstream modules (ion7-llm, ion7-embed) use this to adapt behavior.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">ion7.capabilities</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">0 on success, error code otherwise.</span></div>
 </div>
-</div>
-<div class="fn-divider"></div>
-<div id="ion7_time_us" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">ion7.time_us</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Microsecond timestamp from llama.cpp internal clock.
-Useful for precise timing inside generation loops.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">ion7.time_us</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
-</div>
-</div>
-<div class="fn-divider"></div>
-<div id="ion7_numa_init" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">ion7.numa_init</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Initialize NUMA optimization for multi-socket servers.
-Call BEFORE ion7.init() for best effect.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">ion7.numa_init</span><span class="text-zinc-700">(</span><span class="text-zinc-500">strategy</span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">strategy</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Default: NUMA_DISTRIBUTE.</span></div>
-</div>
-</div>
-<div class="fn-divider"></div>
-<div id="ion7_reset" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">ion7.reset</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Reset the library state (backend freed, singleton cleared).
-Allows calling ion7.init() again in the same process.
-Primarily useful for test isolation.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">ion7.reset</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 </div>
     </main>
   </div>
