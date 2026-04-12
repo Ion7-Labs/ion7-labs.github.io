@@ -59,6 +59,8 @@
 {"name":"walk.first_literals","module":"ast.walk","href":"ast_walk.html#walk_first_literals","desc":"Recursively collect literal string prefixes that can start a valid match.  On..."},
 {"name":"to_ast","module":"from.regex","href":"from_regex.html#to_ast","desc":"Convert a regex string to a GBNF rule body (AST node)."},
 {"name":"to_gbnf","module":"from.regex","href":"from_regex.html#to_gbnf","desc":"Convert a regex pattern directly to a single-rule GBNF string."},
+{"name":"json_mod.to_rules","module":"init","href":"init.html#json_mod_to_rules","desc":"Convert a JSON Schema to GBNF rules (as an array for Builder:merge)."},
+{"name":"json_mod.to_gbnf","module":"init","href":"init.html#json_mod_to_gbnf","desc":"Convert a JSON Schema directly to a GBNF string."},
 {"name":"Types.to_schema","module":"from.types","href":"from_types.html#Types_to_schema","desc":"Convert a Lua type annotation to a JSON Schema table.  Maps the simplified io..."},
 {"name":"Types.from_type","module":"from.types","href":"from_types.html#Types_from_type","desc":"Build a Builder from a Lua type annotation.  Avoids the circular dep of calli..."},
 {"name":"Types.from_function","module":"from.types","href":"from_types.html#Types_from_function","desc":"Build a Builder for a named function signature.  Generates a JSON object gram..."},
