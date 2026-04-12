@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sampler &mdash; ion7 docs</title>
+  <script>
+    tailwind = { config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ["'JetBrains Mono'", "'Fira Code'", "ui-monospace", "monospace"],
+            sans: ["'Inter'", "system-ui", "sans-serif"],
+          }
+        }
+      }
+    }}
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html { background: #09090b; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    .fn-divider { border-top: 1px solid #1c1c1e; margin: 2rem 0; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased min-h-screen">
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-56 shrink-0 bg-zinc-950 border-r border-zinc-800/50 hidden lg:flex flex-col sticky top-0 h-screen overflow-y-auto">
+    <div class="px-4 py-4 border-b border-zinc-800/50">
+      <a href="index.html" class="flex items-center gap-1.5 group">
+        <span class="text-zinc-100 font-mono font-semibold text-sm">ion7</span>
+        <span class="text-zinc-700 font-mono text-sm">/</span>
+        <span class="text-zinc-600 font-mono text-sm">docs</span>
+      </a>
+    </div>
+    <nav class="flex-1 py-3 overflow-y-auto">
+      <div class="mb-5 px-2"><li><a href="index.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">README</a></li></div>
+<div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">ion7</p>
+  <ul class="space-y-px"><li><a href="ion7_core.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">core</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">model</p>
+  <ul class="space-y-px"><li><a href="model.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">model</a></li><li><a href="model_inspect.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">inspect</a></li><li><a href="model_meta.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">meta</a></li><li><a href="model_lora.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">lora</a></li><li><a href="model_quantize.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">quantize</a></li><li><a href="model_context_factory.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context_factory</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">context</p>
+  <ul class="space-y-px"><li><a href="context.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context</a></li><li><a href="context_decode.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">decode</a></li><li><a href="context_kv.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">kv</a></li><li><a href="context_state.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">state</a></li><li><a href="context_logits.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">logits</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">vocab</p>
+  <ul class="space-y-px"><li><a href="vocab.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">vocab</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">sampler</p>
+  <ul class="space-y-px"><li><a href="sampler.html" class="block px-2 py-1.5 rounded text-zinc-100 bg-zinc-800/80 text-xs font-mono">sampler</a></li><li><a href="sampler_common.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">common</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">custom_sampler</p>
+  <ul class="space-y-px"><li><a href="custom_sampler.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">custom_sampler</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">threadpool</p>
+  <ul class="space-y-px"><li><a href="threadpool.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">threadpool</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">speculative</p>
+  <ul class="space-y-px"><li><a href="speculative.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">speculative</a></li></ul>
+</div>
+    </nav>
+    <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
+      <span class="text-zinc-700 text-xs font-mono">v2.0.0</span>
+      <a href="../" class="text-zinc-800 hover:text-zinc-500 text-xs font-mono transition-colors">&larr; home</a>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <div class="flex-1 min-w-0 flex flex-col">
+    <header class="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur border-b border-zinc-800/50 px-6 py-2 flex items-center gap-4">
+      <div class="flex items-center gap-2 text-xs font-mono text-zinc-600 shrink-0">
+        <a href="index.html" class="hover:text-zinc-400 transition-colors">ion7-core</a> <span class="text-zinc-800">/</span> <span class="text-zinc-500">sampler</span>
+      </div>
+      <!-- Search -->
+      <div class="flex-1 max-w-xs relative" id="search-container">
+        <input id="search-input" type="text" placeholder="Search functions..."
+          autocomplete="off" spellcheck="false"
+          class="w-full bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 focus:border-zinc-600 rounded px-3 py-1.5 text-xs font-mono text-zinc-300 placeholder-zinc-700 outline-none transition-colors" />
+        <div id="search-results"
+          class="hidden absolute top-full left-0 right-0 mt-1 bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl overflow-hidden z-50 max-h-72 overflow-y-auto">
+        </div>
+      </div>
+    </header>
+    <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
+<p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">module</p>
+<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">sampler</h1>
+<pre class="bg-zinc-900 border border-zinc-800 rounded-lg px-5 py-4 text-xs font-mono text-zinc-300 overflow-x-auto leading-relaxed mb-6"><code>local sampler = Sampler.chain()
+    :penalties({ repeat_last_n = 64, repeat_penalty = 1.1 })
+    :top_k(40)
+    :top_p(0.95)
+    :min_p(0.05)
+    :temperature(0.8)
+    :build()
+
+local token = sampler:sample(ctx, 0)
+sampler:accept(token)</code></pre>
+<p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">SamplerBuilder</p>
+<div class="mb-8 bg-zinc-900/50 border border-zinc-800/60 rounded-lg overflow-hidden">
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_steps</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">table</span>
+  <span class="text-zinc-600 text-xs">Ordered list of sampler specs.</span>
+</div>
+</div>
+<p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Sampler</p>
+<div class="mb-8 bg-zinc-900/50 border border-zinc-800/60 rounded-lg overflow-hidden">
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_chain</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">llama_sampler* (freed on GC).</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_lib</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">libllama.so namespace.</span>
+</div>
+</div>
+<p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
+<div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
+<a href="#SamplerBuilder_new" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder.new</a>
+<a href="#SamplerBuilder_greedy" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:greedy</a>
+<a href="#SamplerBuilder_dist" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:dist</a>
+<a href="#SamplerBuilder_temp" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:temp</a>
+<a href="#SamplerBuilder_temperature" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:temperature</a>
+<a href="#SamplerBuilder_temp_dynamic" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:temp_dynamic</a>
+<a href="#SamplerBuilder_temperature_dynamic" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:temperature_dynamic</a>
+<a href="#SamplerBuilder_top_k" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:top_k</a>
+<a href="#SamplerBuilder_top_p" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:top_p</a>
+<a href="#SamplerBuilder_min_p" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:min_p</a>
+<a href="#SamplerBuilder_top_n_sigma" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:top_n_sigma</a>
+<a href="#SamplerBuilder_typical" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:typical</a>
+<a href="#SamplerBuilder_xtc" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:xtc</a>
+<a href="#SamplerBuilder_mirostat" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:mirostat</a>
+<a href="#SamplerBuilder_mirostat_v2" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:mirostat_v2</a>
+<a href="#SamplerBuilder_penalties" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:penalties</a>
+<a href="#SamplerBuilder_dry" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:dry</a>
+<a href="#SamplerBuilder_grammar" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:grammar</a>
+<a href="#SamplerBuilder_logit_bias" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:logit_bias</a>
+<a href="#SamplerBuilder_adaptive_p" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:adaptive_p</a>
+<a href="#SamplerBuilder_grammar_lazy" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:grammar_lazy</a>
+<a href="#SamplerBuilder_custom" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:custom</a>
+<a href="#SamplerBuilder_infill" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:infill</a>
+<a href="#SamplerBuilder_reasoning_budget" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:reasoning_budget</a>
+<a href="#SamplerBuilder_build" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">SamplerBuilder:build</a>
+<a href="#Sampler__wrap" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler._wrap</a>
+<a href="#Sampler_sample" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:sample</a>
+<a href="#Sampler_accept" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:accept</a>
+<a href="#Sampler_reset" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:reset</a>
+<a href="#Sampler_seed" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:seed</a>
+<a href="#Sampler_name" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:name</a>
+<a href="#Sampler_n" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:n</a>
+<a href="#Sampler_get" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:get</a>
+<a href="#Sampler_remove" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:remove</a>
+<a href="#Sampler_clone" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:clone</a>
+<a href="#Sampler_perf" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:perf</a>
+<a href="#Sampler_perf_print" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:perf_print</a>
+<a href="#Sampler_perf_reset" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:perf_reset</a>
+<a href="#Sampler_free" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler:free</a>
+<a href="#Sampler_chain" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler.chain</a>
+<a href="#Sampler_default" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler.default</a>
+<a href="#Sampler_greedy" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler.greedy</a>
+<a href="#Sampler_creative" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Sampler.creative</a>
+</div>
+<div id="SamplerBuilder_new" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder.new</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Start building a sampler chain.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder.new</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_greedy" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:greedy</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a greedy sampler (always picks the highest-probability token).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:greedy</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_dist" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:dist</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a distribution sampler (samples from the probability distribution).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:dist</span><span class="text-zinc-700">(</span><span class="text-zinc-500">seed</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seed</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">RNG seed. Default: random.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_temp" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:temp</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a temperature sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:temp</span><span class="text-zinc-700">(</span><span class="text-zinc-500">t</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">t</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Temperature (0 = greedy, 1 = unmodified, >1 = more random).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">t</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_temperature" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:temperature</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a temperature sampler (long form of temp()).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:temperature</span><span class="text-zinc-700">(</span><span class="text-zinc-500">t</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">t</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Temperature (0 = greedy, 1 = unmodified, >1 = more random).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_temp_dynamic" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:temp_dynamic</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a dynamic temperature sampler.
+
+Final temperature is drawn from [base-range, base+range].</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:temp_dynamic</span><span class="text-zinc-700">(</span><span class="text-zinc-500">base, range, exponent</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">base</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Center temperature.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">range</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Half-width of the temperature range.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">exponent</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Exponent for the distribution (default: 1.0).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_temperature_dynamic" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:temperature_dynamic</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a dynamic temperature sampler (long form of temp_dynamic()).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:temperature_dynamic</span><span class="text-zinc-700">(</span><span class="text-zinc-500">base, range, exponent</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">base</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Center temperature.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">range</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Half-width — final temp drawn from [base-range, base+range].</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">exponent</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Exponent for the distribution (default: 1.0).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_top_k" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:top_k</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a Top-K sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:top_k</span><span class="text-zinc-700">(</span><span class="text-zinc-500">k</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">k</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Keep only the K most probable tokens.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_top_p" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:top_p</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a Nucleus (Top-P) sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:top_p</span><span class="text-zinc-700">(</span><span class="text-zinc-500">p, min_keep</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">p</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Cumulative probability threshold (e.g. 0.95).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">min_keep</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Minimum tokens to keep (default: 1).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_min_p" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:min_p</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a Min-P sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:min_p</span><span class="text-zinc-700">(</span><span class="text-zinc-500">p, min_keep</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">p</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Minimum probability relative to the top token.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">min_keep</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Minimum tokens to keep (default: 1).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_top_n_sigma" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:top_n_sigma</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a Top-N-Sigma sampler (2025).
+Keeps tokens within N standard deviations of the maximum logit.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:top_n_sigma</span><span class="text-zinc-700">(</span><span class="text-zinc-500">n</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_typical" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:typical</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add Locally Typical sampling (Meister et al. 2023).
+Selects tokens whose conditional information content is typical of the
+expected value, producing more natural and coherent output than top-p alone.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:typical</span><span class="text-zinc-700">(</span><span class="text-zinc-500">p, min_keep</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">p</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Typicality threshold in (0, 1]. Lower = more restrictive.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">min_keep</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Minimum tokens to keep (default: 1).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_xtc" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:xtc</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add XTC (Exclude Top Choices) sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:xtc</span><span class="text-zinc-700">(</span><span class="text-zinc-500">probability, threshold, min_keep, seed</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">probability</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Probability that XTC fires for a token.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">threshold</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Logit threshold for exclusion.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">min_keep</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seed</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_mirostat" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:mirostat</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add Mirostat v1 sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:mirostat</span><span class="text-zinc-700">(</span><span class="text-zinc-500">n_vocab, tau, eta, m, seed</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Vocabulary size.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tau</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Target entropy (default: 5.0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">eta</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Learning rate (default: 0.1).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">m</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">M parameter (default: 100).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seed</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_mirostat_v2" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:mirostat_v2</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add Mirostat v2 sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:mirostat_v2</span><span class="text-zinc-700">(</span><span class="text-zinc-500">tau, eta, seed</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tau</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Target entropy (default: 5.0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">eta</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Learning rate (default: 0.1).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seed</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_penalties" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:penalties</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add repetition/frequency/presence penalties.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:penalties</span><span class="text-zinc-700">(</span><span class="text-zinc-500">last_n, repeat_penalty, freq_penalty, present_penalty</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_dry" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:dry</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add DRY (Don't Repeat Yourself) repetition sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:dry</span><span class="text-zinc-700">(</span><span class="text-zinc-500">opts, vocab, n_ctx_train</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">llama_vocab* (required for DRY).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_ctx_train</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Model's training context size.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_grammar" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:grammar</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a GBNF grammar sampler.
+
+Constrains generation to text that matches the given grammar.
+Use Grammar.json() or Grammar.from_json_schema() for structured output.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:grammar</span><span class="text-zinc-700">(</span><span class="text-zinc-500">gbnf_string, root, vocab</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">gbnf_string</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Grammar in GBNF format.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500">Root rule name (default: "root").</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">llama_vocab* (required).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_logit_bias" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:logit_bias</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a logit bias sampler.
+
+Adjusts logits for specific tokens before sampling.
+Positive bias increases the probability of a token; negative decreases it.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:logit_bias</span><span class="text-zinc-700">(</span><span class="text-zinc-500">biases</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">biases</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">{ [token_id] = delta_logit, ... }</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_adaptive_p" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:adaptive_p</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add an adaptive-p sampler (ref: https://github.com/ggml-org/llama.cpp/pull/17927).
+Dynamically adjusts the probability threshold using exponential decay.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:adaptive_p</span><span class="text-zinc-700">(</span><span class="text-zinc-500">target, decay, seed</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">target</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Target probability threshold (default: 0.45).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">decay</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Decay factor per step (default: 0.99).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seed</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">RNG seed (default: random).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_grammar_lazy" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:grammar_lazy</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a lazy grammar sampler with trigger patterns.
+Grammar is only activated when one of the trigger conditions is met.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:grammar_lazy</span><span class="text-zinc-700">(</span><span class="text-zinc-500">gbnf_string, root, vocab, trigger_words, trigger_tokens, trigger_patterns</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">gbnf_string</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Grammar in GBNF format.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500">Root rule name (default: "root").</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">llama_vocab*.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">trigger_words</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">Strings that trigger grammar activation.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">trigger_tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">Token IDs that trigger grammar activation.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">trigger_patterns</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">Regex patterns that trigger grammar activation.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_custom" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:custom</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a custom sampler written in Lua.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:custom</span><span class="text-zinc-700">(</span><span class="text-zinc-500">custom_sampler</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">custom_sampler</span><span class="font-mono text-zinc-700 w-28 shrink-0">CustomSampler</span><span class="text-zinc-500">From llama.CustomSampler.new().</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_infill" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:infill</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add an infill (fill-in-the-middle) sampler.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:infill</span><span class="text-zinc-700">(</span><span class="text-zinc-500">vocab</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">llama_vocab*.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_reasoning_budget" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:reasoning_budget</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a native reasoning-budget sampler to the chain.
+Forces </think> injection once the token budget inside <think> is exhausted.
+Designed for Qwen3/3.5 and DeepSeek-R1 thinking models.
+Must be placed FIRST in the chain (before temperature / top-k).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:reasoning_budget</span><span class="text-zinc-700">(</span><span class="text-zinc-500">model, n_budget</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">model</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata|table</span><span class="text-zinc-500">llama_model* or ion7-core Model object.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_budget</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Max tokens inside a <think> block.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="SamplerBuilder_build" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">SamplerBuilder:build</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Add a custom Lua-implemented sampler to the chain.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">SamplerBuilder:build</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">cs</span><span class="font-mono text-zinc-700 w-28 shrink-0">CustomSampler</span><span class="text-zinc-500">Created via llama.CustomSampler.new().</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Sampler</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; If any sampler initialisation fails.</p>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler__wrap" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler._wrap</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Internal: wrap a raw chain pointer.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler._wrap</span><span class="text-zinc-700">(</span><span class="text-zinc-500">chain, lib</span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_sample" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:sample</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Sample the next token from context position idx.
+
+When called on a sampler CHAIN (the common case), llama_sampler_sample()
+internally calls llama_sampler_accept() on all samplers in the chain.
+Do NOT call Sampler:accept() separately after sample() - it would be a
+double-accept and will corrupt grammar sampler state, causing a crash.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:sample</span><span class="text-zinc-700">(</span><span class="text-zinc-500">ctx, idx</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ctx</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">llama_context*.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">idx</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Logit position (-1 = last decoded position).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_accept" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:accept</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Inform the sampler chain that a token was accepted.
+Must be called after each generated token to update penalty state.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:accept</span><span class="text-zinc-700">(</span><span class="text-zinc-500">token</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Accepted token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_reset" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:reset</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Reset the sampler chain state (penalty history, mirostat state, etc.).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:reset</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_seed" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:seed</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:seed</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Current RNG seed of the chain.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_name" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:name</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:name</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Name of the sampler.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_n" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:n</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:n</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Number of samplers in the chain.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_get" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:get</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the sampler at position i in the chain.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:get</span><span class="text-zinc-700">(</span><span class="text-zinc-500">i</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">0-based index.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Sampler</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">(not GC-managed -- owned by the chain)</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_remove" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:remove</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Remove the sampler at position i from the chain and return it (caller owns it).
+The returned sampler is NOT GC-managed - free it explicitly with Sampler:free()
+or add it to another chain.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:remove</span><span class="text-zinc-700">(</span><span class="text-zinc-500">i</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">0-based index.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Sampler</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Removed sampler (unowned).</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_clone" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:clone</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Clone this sampler chain.
+The clone is independently GC-managed.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:clone</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Sampler</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_perf" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:perf</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return performance data for this sampler chain.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:perf</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">{ t_sample_ms, n_sample }</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_perf_print" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:perf_print</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Print sampler performance to stderr.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:perf_print</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_perf_reset" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:perf_reset</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Reset sampler performance counters.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:perf_reset</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_free" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler:free</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Explicitly free the sampler chain and cancel the GC finalizer.
+
+The sampler is freed automatically on GC, so calling this is optional.
+Use it in tight generation loops where you want deterministic cleanup
+without waiting for the garbage collector.
+
+After free(), the Sampler object is invalid and must not be used.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler:free</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_chain" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler.chain</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Returns a SamplerBuilder (entry point for the fluent API).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler.chain</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;SamplerBuilder</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_default" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler.default</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Default sampler: temperature=0.8, top_k=40, top_p=0.95, min_p=0.05.
+Suitable for most conversational use cases.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler.default</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Sampler</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_greedy" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler.greedy</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Pure greedy sampler (deterministic, best-token at each step).
+Useful for structured output tasks alongside grammar sampling.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler.greedy</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Sampler</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Sampler_creative" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Sampler.creative</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Creative sampler: higher temperature, mild repetition control.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Sampler.creative</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Sampler</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+    </main>
+  </div>
+</div>
+<script>
+(function() {
+  var input = document.getElementById('search-input');
+  var box   = document.getElementById('search-results');
+  if (!input || !box) return;
+
+  var index = null;
+
+  fetch('search-index.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) { index = data; })
+    .catch(function() {});
+
+  input.addEventListener('input', function() {
+    var q = input.value.trim().toLowerCase();
+    if (!index || q.length < 2) { box.classList.add('hidden'); return; }
+
+    var results = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      if (item.name.toLowerCase().indexOf(q) !== -1 ||
+          (item.desc && item.desc.toLowerCase().indexOf(q) !== -1)) {
+        results.push(item);
+        if (results.length >= 12) break;
+      }
+    }
+
+    if (results.length === 0) { box.classList.add('hidden'); return; }
+
+    var html = '';
+    for (var j = 0; j < results.length; j++) {
+      var r = results[j];
+      var hl = r.name.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'),
+               '<span class="text-zinc-100">$1</span>');
+      html += '<a href="' + r.href + '" class="flex items-baseline gap-3 px-3 py-2 hover:bg-zinc-800 border-b border-zinc-800/60 last:border-0 transition-colors">'
+            + '<span class="font-mono text-zinc-300 text-xs shrink-0">' + hl + '</span>'
+            + '<span class="text-zinc-600 text-xs truncate">' + (r.module || '') + '</span>'
+            + '</a>';
+    }
+    box.innerHTML = html;
+    box.classList.remove('hidden');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!document.getElementById('search-container').contains(e.target)) {
+      box.classList.add('hidden');
+    }
+  });
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { box.classList.add('hidden'); input.blur(); }
+  });
+})();
+</script>
+</body>
+</html>

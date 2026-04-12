@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vocab &mdash; ion7 docs</title>
+  <script>
+    tailwind = { config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ["'JetBrains Mono'", "'Fira Code'", "ui-monospace", "monospace"],
+            sans: ["'Inter'", "system-ui", "sans-serif"],
+          }
+        }
+      }
+    }}
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html { background: #09090b; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    .fn-divider { border-top: 1px solid #1c1c1e; margin: 2rem 0; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased min-h-screen">
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-56 shrink-0 bg-zinc-950 border-r border-zinc-800/50 hidden lg:flex flex-col sticky top-0 h-screen overflow-y-auto">
+    <div class="px-4 py-4 border-b border-zinc-800/50">
+      <a href="index.html" class="flex items-center gap-1.5 group">
+        <span class="text-zinc-100 font-mono font-semibold text-sm">ion7</span>
+        <span class="text-zinc-700 font-mono text-sm">/</span>
+        <span class="text-zinc-600 font-mono text-sm">docs</span>
+      </a>
+    </div>
+    <nav class="flex-1 py-3 overflow-y-auto">
+      <div class="mb-5 px-2"><li><a href="index.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">README</a></li></div>
+<div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">ion7</p>
+  <ul class="space-y-px"><li><a href="ion7_core.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">core</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">model</p>
+  <ul class="space-y-px"><li><a href="model.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">model</a></li><li><a href="model_inspect.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">inspect</a></li><li><a href="model_meta.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">meta</a></li><li><a href="model_lora.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">lora</a></li><li><a href="model_quantize.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">quantize</a></li><li><a href="model_context_factory.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context_factory</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">context</p>
+  <ul class="space-y-px"><li><a href="context.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context</a></li><li><a href="context_decode.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">decode</a></li><li><a href="context_kv.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">kv</a></li><li><a href="context_state.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">state</a></li><li><a href="context_logits.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">logits</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">vocab</p>
+  <ul class="space-y-px"><li><a href="vocab.html" class="block px-2 py-1.5 rounded text-zinc-100 bg-zinc-800/80 text-xs font-mono">vocab</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">sampler</p>
+  <ul class="space-y-px"><li><a href="sampler.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">sampler</a></li><li><a href="sampler_common.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">common</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">custom_sampler</p>
+  <ul class="space-y-px"><li><a href="custom_sampler.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">custom_sampler</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">threadpool</p>
+  <ul class="space-y-px"><li><a href="threadpool.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">threadpool</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">speculative</p>
+  <ul class="space-y-px"><li><a href="speculative.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">speculative</a></li></ul>
+</div>
+    </nav>
+    <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
+      <span class="text-zinc-700 text-xs font-mono">v2.0.0</span>
+      <a href="../" class="text-zinc-800 hover:text-zinc-500 text-xs font-mono transition-colors">&larr; home</a>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <div class="flex-1 min-w-0 flex flex-col">
+    <header class="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur border-b border-zinc-800/50 px-6 py-2 flex items-center gap-4">
+      <div class="flex items-center gap-2 text-xs font-mono text-zinc-600 shrink-0">
+        <a href="index.html" class="hover:text-zinc-400 transition-colors">ion7-core</a> <span class="text-zinc-800">/</span> <span class="text-zinc-500">vocab</span>
+      </div>
+      <!-- Search -->
+      <div class="flex-1 max-w-xs relative" id="search-container">
+        <input id="search-input" type="text" placeholder="Search functions..."
+          autocomplete="off" spellcheck="false"
+          class="w-full bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 focus:border-zinc-600 rounded px-3 py-1.5 text-xs font-mono text-zinc-300 placeholder-zinc-700 outline-none transition-colors" />
+        <div id="search-results"
+          class="hidden absolute top-full left-0 right-0 mt-1 bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl overflow-hidden z-50 max-h-72 overflow-y-auto">
+        </div>
+      </div>
+    </header>
+    <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
+<p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">class</p>
+<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">Vocab</h1>
+<pre class="bg-zinc-900 border border-zinc-800 rounded-lg px-5 py-4 text-xs font-mono text-zinc-300 overflow-x-auto leading-relaxed mb-6"><code>local vocab = model:vocab()
+local tokens, n = vocab:tokenize("Hello, world!", true, true)
+local text = vocab:detokenize(tokens, n)
+print(text)  --&gt; "Hello, world!"</code></pre>
+<div class="mb-8 bg-zinc-900/50 border border-zinc-800/60 rounded-lg overflow-hidden">
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_ptr</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">Opaque llama_vocab* (not owned, do not free).</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_lib</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">libllama.so namespace.</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_model</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">llama_model* for chat template calls.</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_bridge</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">ion7_bridge.so namespace.</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_ffi</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">LuaJIT ffi namespace.</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_tmpls</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">ion7_chat_templates_t* (owned, freed via ffi.gc).</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_piece_buf</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">Scratch buffer for token-to-piece conversion.</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_piece_big</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">Pre-alloc fallback buffer for oversized pieces.</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_piece_cache</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">table</span>
+  <span class="text-zinc-600 text-xs">Strong cache: token id → piece string.</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_tmpl_buf</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">Scratch buffer for chat template output.</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_dtok_buf</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">Scratch buffer for detokenize output.</span>
+</div>
+</div>
+<p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
+<div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
+<a href="#Vocab_new" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab.new</a>
+<a href="#Vocab_n_vocab" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:n_vocab</a>
+<a href="#Vocab_type" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:type</a>
+<a href="#Vocab_tokenize" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:tokenize</a>
+<a href="#Vocab_detokenize" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:detokenize</a>
+<a href="#Vocab_piece" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:piece</a>
+<a href="#Vocab_text" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:text</a>
+<a href="#Vocab_is_eog" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:is_eog</a>
+<a href="#Vocab_bos" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:bos</a>
+<a href="#Vocab_eos" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:eos</a>
+<a href="#Vocab_eot" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:eot</a>
+<a href="#Vocab_nl" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:nl</a>
+<a href="#Vocab_pad" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:pad</a>
+<a href="#Vocab_fim_pre" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:fim_pre</a>
+<a href="#Vocab_fim_suf" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:fim_suf</a>
+<a href="#Vocab_fim_mid" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:fim_mid</a>
+<a href="#Vocab_fim_pad" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:fim_pad</a>
+<a href="#Vocab_fim_rep" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:fim_rep</a>
+<a href="#Vocab_fim_sep" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:fim_sep</a>
+<a href="#Vocab_sep" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:sep</a>
+<a href="#Vocab_mask" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:mask</a>
+<a href="#Vocab_get_add_sep" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:get_add_sep</a>
+<a href="#Vocab_get_add_bos" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:get_add_bos</a>
+<a href="#Vocab_get_add_eos" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:get_add_eos</a>
+<a href="#Vocab_n_tokens" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:n_tokens</a>
+<a href="#Vocab_cls" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:cls</a>
+<a href="#Vocab_score" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:score</a>
+<a href="#Vocab_attr" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:attr</a>
+<a href="#Vocab_is_control" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:is_control</a>
+<a href="#Vocab_builtin_templates" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:builtin_templates</a>
+<a href="#Vocab_apply_template" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:apply_template</a>
+<a href="#Vocab_supports_thinking" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Vocab:supports_thinking</a>
+</div>
+<div id="Vocab_new" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab.new</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Create a Vocab from a raw llama_vocab pointer.
+Prefer model:vocab() over calling this directly.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab.new</span><span class="text-zinc-700">(</span><span class="text-zinc-500">lib, model, ptr</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">lib</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">libllama.so FFI namespace.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">model</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">llama_model* (needed for chat template).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ptr</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">llama_vocab* from llama_model_get_vocab().</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Vocab</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_n_vocab" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:n_vocab</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:n_vocab</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Total number of tokens in the vocabulary.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_type" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:type</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:type</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Vocabulary type: "spm", "bpe", "wpm", "ugm", "rwkv", or "none".</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_tokenize" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:tokenize</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Tokenize a text string.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:tokenize</span><span class="text-zinc-700">(</span><span class="text-zinc-500">text, add_special, parse_special</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">text</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">UTF-8 text to tokenize.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">add_special</span><span class="font-mono text-zinc-700 w-28 shrink-0">bool?</span><span class="text-zinc-500">Add BOS/EOS tokens (default: false).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">parse_special</span><span class="font-mono text-zinc-700 w-28 shrink-0">bool?</span><span class="text-zinc-500">Parse special token text (default: true).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata,</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">number  int32_t array and token count.</span></div>
+</div>
+<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; If tokenization fails.</p>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_detokenize" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:detokenize</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Detokenize a sequence of tokens back into text.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:detokenize</span><span class="text-zinc-700">(</span><span class="text-zinc-500">tokens, n, remove_special, unparse_special</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">int32_t array.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Number of tokens.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">remove_special</span><span class="font-mono text-zinc-700 w-28 shrink-0">bool?</span><span class="text-zinc-500">Strip BOS/EOS (default: false).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">unparse_special</span><span class="font-mono text-zinc-700 w-28 shrink-0">bool?</span><span class="text-zinc-500">Convert specials back to text (default: false).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_piece" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:piece</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Convert a single token to its text piece.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:piece</span><span class="text-zinc-700">(</span><span class="text-zinc-500">token, special</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Token ID.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">special</span><span class="font-mono text-zinc-700 w-28 shrink-0">bool?</span><span class="text-zinc-500">Include special token text (default: true).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_text" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:text</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Get the raw text representation of a token (without lstrip behavior).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:text</span><span class="text-zinc-700">(</span><span class="text-zinc-500">token</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Token ID.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_is_eog" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:is_eog</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Check whether a token is an end-of-generation token.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:is_eog</span><span class="text-zinc-700">(</span><span class="text-zinc-500">token</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Token ID.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_bos" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:bos</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:bos</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Beginning-of-sequence token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_eos" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:eos</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:eos</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">End-of-sequence token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_eot" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:eot</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:eot</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">End-of-turn token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_nl" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:nl</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:nl</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Newline token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_pad" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:pad</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:pad</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Padding token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_fim_pre" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:fim_pre</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Fill-in-the-Middle (FIM) prefix token ID.
+Used for code infill tasks (FIM-prefix / suffix / middle tokens).
+Returns -1 if the model does not support FIM.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:fim_pre</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_fim_suf" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:fim_suf</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Fill-in-the-Middle suffix token ID. Returns -1 if unsupported.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:fim_suf</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_fim_mid" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:fim_mid</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Fill-in-the-Middle middle token ID. Returns -1 if unsupported.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:fim_mid</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_fim_pad" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:fim_pad</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Fill-in-the-Middle pad token ID. Returns -1 if unsupported.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:fim_pad</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_fim_rep" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:fim_rep</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Fill-in-the-Middle repo token ID. Returns -1 if unsupported.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:fim_rep</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_fim_sep" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:fim_sep</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Fill-in-the-Middle separator token ID. Returns -1 if unsupported.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:fim_sep</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_sep" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:sep</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:sep</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Sentence separator token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_mask" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:mask</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:mask</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Mask token ID.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_get_add_sep" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:get_add_sep</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:get_add_sep</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">CLS (classification) token ID.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Whether add_sep is set.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_get_add_bos" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:get_add_bos</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Returns true if the model vocabulary adds a BOS token automatically.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:get_add_bos</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_get_add_eos" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:get_add_eos</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Returns true if the model vocabulary adds an EOS token automatically.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:get_add_eos</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_n_tokens" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:n_tokens</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Alias: n_tokens() = n_vocab()</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:n_tokens</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_cls" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:cls</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">CLS token ID. CLS == BOS in llama.cpp (llama_vocab_cls is deprecated).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:cls</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_score" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:score</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Get the float score of a token (used in Unigram/SPM tokenizers).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:score</span><span class="text-zinc-700">(</span><span class="text-zinc-500">token</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_attr" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:attr</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Get the attribute flags of a token.
+Returns a bitmask of LLAMA_TOKEN_ATTR_* values.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:attr</span><span class="text-zinc-700">(</span><span class="text-zinc-500">token</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_is_control" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:is_control</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Returns true if a token is a control token.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:is_control</span><span class="text-zinc-700">(</span><span class="text-zinc-500">token</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_builtin_templates" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:builtin_templates</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">List the names of all built-in chat templates available in llama.cpp.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:builtin_templates</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Array of template name strings.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_apply_template" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:apply_template</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Apply the model's Jinja2 chat template to a list of messages.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:apply_template</span><span class="text-zinc-700">(</span><span class="text-zinc-500">messages, add_ass, enable_thinking</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">messages</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">Array of { role = string, content = string }.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">add_ass</span><span class="font-mono text-zinc-700 w-28 shrink-0">bool?</span><span class="text-zinc-500">Append the assistant generation prompt (default: true).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">enable_thinking</span><span class="font-mono text-zinc-700 w-28 shrink-0">int?</span><span class="text-zinc-500">-1 = model default, 0 = disable, 1 = enable (default: -1).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Formatted prompt string ready for tokenisation.</span></div>
+</div>
+<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; If the template application fails.</p>
+</div>
+<div class="fn-divider"></div>
+<div id="Vocab_supports_thinking" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Vocab:supports_thinking</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Returns true if the model's template supports enable_thinking.
+(Qwen3/3.5, DeepSeek-R1 and similar reasoning models return true.)</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Vocab:supports_thinking</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+    </main>
+  </div>
+</div>
+<script>
+(function() {
+  var input = document.getElementById('search-input');
+  var box   = document.getElementById('search-results');
+  if (!input || !box) return;
+
+  var index = null;
+
+  fetch('search-index.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) { index = data; })
+    .catch(function() {});
+
+  input.addEventListener('input', function() {
+    var q = input.value.trim().toLowerCase();
+    if (!index || q.length < 2) { box.classList.add('hidden'); return; }
+
+    var results = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      if (item.name.toLowerCase().indexOf(q) !== -1 ||
+          (item.desc && item.desc.toLowerCase().indexOf(q) !== -1)) {
+        results.push(item);
+        if (results.length >= 12) break;
+      }
+    }
+
+    if (results.length === 0) { box.classList.add('hidden'); return; }
+
+    var html = '';
+    for (var j = 0; j < results.length; j++) {
+      var r = results[j];
+      var hl = r.name.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'),
+               '<span class="text-zinc-100">$1</span>');
+      html += '<a href="' + r.href + '" class="flex items-baseline gap-3 px-3 py-2 hover:bg-zinc-800 border-b border-zinc-800/60 last:border-0 transition-colors">'
+            + '<span class="font-mono text-zinc-300 text-xs shrink-0">' + hl + '</span>'
+            + '<span class="text-zinc-600 text-xs truncate">' + (r.module || '') + '</span>'
+            + '</a>';
+    }
+    box.innerHTML = html;
+    box.classList.remove('hidden');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!document.getElementById('search-container').contains(e.target)) {
+      box.classList.add('hidden');
+    }
+  });
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { box.classList.add('hidden'); input.blur(); }
+  });
+})();
+</script>
+</body>
+</html>

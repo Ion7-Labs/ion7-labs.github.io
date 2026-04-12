@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ion7-labs &mdash; LuaJIT &times; llama.cpp</title>
+  <script>
+    tailwind = { config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ["'JetBrains Mono'", "'Fira Code'", "ui-monospace", "monospace"],
+            sans: ["'Inter'", "system-ui", "sans-serif"],
+          }
+        }
+      }
+    }}
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html { background: #09090b; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    .hero-dots {
+      background-image: radial-gradient(circle, rgba(63,63,70,0.45) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased">
+<header class="border-b border-zinc-800/40 px-6 md:px-14 py-4">
+  <div class="max-w-5xl mx-auto flex items-center justify-between">
+    <a href="." class="flex items-center gap-1.5">
+      <span class="font-mono font-semibold text-zinc-100 text-sm">ion7</span>
+      <span class="font-mono text-zinc-700 text-sm">/</span>
+      <span class="font-mono text-zinc-600 text-sm">labs</span>
+    </a>
+    <nav class="flex items-center gap-6">
+      <a href="api/" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 transition-colors">docs</a>
+      <a href="https://github.com/ion7-labs" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 transition-colors">github &nearr;</a>
+    </nav>
+  </div>
+</header>
+<section class="hero-dots relative">
+  <div class="max-w-5xl mx-auto px-6 md:px-14 pt-28 pb-24 relative">
+    <p class="font-mono text-xs text-zinc-700 uppercase tracking-[0.2em] mb-6">ion7-labs</p>
+    <h1 class="text-5xl md:text-7xl font-mono font-semibold text-zinc-100 leading-none mb-7 tracking-tight">
+      LuaJIT<br><span class="text-zinc-600">&times;</span> llama.cpp
+    </h1>
+    <p class="text-zinc-500 text-base leading-relaxed mb-10 max-w-xl">
+      Local LLM inference runtime for LuaJIT. Zero Python. Zero HTTP overhead.<br>
+      Direct FFI into libllama.so &mdash; microseconds, not milliseconds.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <a href="api/" class="font-mono text-sm bg-zinc-100 text-zinc-950 hover:bg-white px-6 py-3 rounded transition-colors font-medium">
+        API Reference &rarr;
+      </a>
+      <a href="https://github.com/ion7-labs" class="font-mono text-sm border border-zinc-800 hover:border-zinc-700 text-zinc-500 hover:text-zinc-200 px-6 py-3 rounded transition-colors">
+        GitHub &nearr;
+      </a>
+    </div>
+  </div>
+</section>
+<div class="border-y border-zinc-800/40 bg-zinc-900/20">
+  <div class="max-w-5xl mx-auto px-6 md:px-14 py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div>
+      <p class="font-mono text-2xl font-semibold text-zinc-100">~15ms</p>
+      <p class="font-mono text-xs text-zinc-600 mt-1">startup time</p>
+    </div>
+    <div>
+      <p class="font-mono text-2xl font-semibold text-zinc-100">0</p>
+      <p class="font-mono text-xs text-zinc-600 mt-1">malloc / token</p>
+    </div>
+    <div>
+      <p class="font-mono text-2xl font-semibold text-zinc-100">209</p>
+      <p class="font-mono text-xs text-zinc-600 mt-1">documented functions</p>
+    </div>
+    <div>
+      <p class="font-mono text-2xl font-semibold text-zinc-100">262k</p>
+      <p class="font-mono text-xs text-zinc-600 mt-1">native context tokens</p>
+    </div>
+  </div>
+</div>
+<section class="max-w-5xl mx-auto px-6 md:px-14 py-16">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-zinc-800/30 rounded-xl overflow-hidden border border-zinc-800/30">
+    <div class="bg-zinc-950 px-6 py-6">
+      <p class="font-mono text-zinc-300 text-xs font-medium mb-2">zero malloc / token</p>
+      <p class="text-zinc-600 text-xs leading-relaxed">llama_batch pre-allocated at context creation. KV cache managed, never reallocated. Every generated token is a pure compute step.</p>
+    </div>
+    <div class="bg-zinc-950 px-6 py-6">
+      <p class="font-mono text-zinc-300 text-xs font-medium mb-2">direct FFI</p>
+      <p class="text-zinc-600 text-xs leading-relaxed">No subprocess, no HTTP, no JSON serialization. LuaJIT ffi.call() straight into libllama.so — call overhead in microseconds.</p>
+    </div>
+    <div class="bg-zinc-950 px-6 py-6">
+      <p class="font-mono text-zinc-300 text-xs font-medium mb-2">full llama.cpp surface</p>
+      <p class="text-zinc-600 text-xs leading-relaxed">84 bridge functions across 4 translation units. Chat templates (Jinja2), LoRA, speculative decoding, grammar, reasoning budget — all exposed.</p>
+    </div>
+    <div class="bg-zinc-950 px-6 py-6">
+      <p class="font-mono text-zinc-300 text-xs font-medium mb-2">grammar engine</p>
+      <p class="text-zinc-600 text-xs leading-relaxed">GBNF, JSON Schema, regex, tool calling in pure Lua. CRANE-style lazy grammar activation. Constrained generation without sacrificing reasoning.</p>
+    </div>
+  </div>
+</section>
+<section class="max-w-5xl mx-auto px-6 md:px-14 pb-20">
+  <p class="font-mono text-xs text-zinc-700 uppercase tracking-widest mb-6">Quick start</p>
+  <pre class="bg-zinc-900/60 border border-zinc-800/60 rounded-lg px-6 py-5 text-xs font-mono text-zinc-400 overflow-x-auto leading-relaxed"><code>local Model   = require "ion7.core.model"
+local Sampler = require "ion7.core.sampler"
+
+local model = Model.load("model.gguf", { n_gpu_layers = -1 })
+local ctx   = model:context({ n_ctx = 4096 })
+local vocab = model:vocab()
+local samp  = Sampler.chain(vocab):temp(0.8):top_p(0.95):build()
+
+local tokens, n = vocab:tokenize("Hello, world!", true)
+ctx:decode(tokens, n)
+
+repeat
+    local token = samp:sample(ctx, -1)
+    samp:accept(token)
+    io.write(vocab:piece(token))
+until vocab:is_eog(token)</code></pre>
+</section>
+<section class="max-w-5xl mx-auto px-6 md:px-14 pb-24">
+  <p class="font-mono text-xs text-zinc-700 uppercase tracking-widest mb-6">Stack</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+<a href="api/" class="group flex flex-col bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800/60 hover:border-zinc-700 rounded-lg px-5 py-4 transition-all">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-200 group-hover:text-zinc-100 text-sm font-medium transition-colors">ion7-core</span>
+    <span class="font-mono text-zinc-500 text-xs">stable v2.0</span>
+  </div>
+  <p class="text-zinc-600 text-xs leading-relaxed flex-1">LuaJIT FFI &rarr; llama.cpp. Zero malloc per token. 84 bridge functions, 4 translation units.</p>
+  <span class="font-mono text-zinc-600 group-hover:text-zinc-400 text-xs mt-3 transition-colors">API Reference &rarr;</span>
+</a>
+<div class="flex flex-col border border-zinc-800/30 bg-zinc-900/20 rounded-lg px-5 py-4">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-500 text-sm font-medium">ion7-grammar</span>
+    <span class="font-mono text-zinc-700 text-xs">beta v0.1</span>
+  </div>
+  <p class="text-zinc-700 text-xs leading-relaxed">GBNF engine in pure Lua. JSON Schema, regex, tool calling, CRANE-style lazy grammar.</p>
+</div>
+<div class="flex flex-col border border-zinc-800/30 bg-zinc-900/20 rounded-lg px-5 py-4">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-500 text-sm font-medium">ion7-llm</span>
+    <span class="font-mono text-zinc-700 text-xs">beta v0.1</span>
+  </div>
+  <p class="text-zinc-700 text-xs leading-relaxed">High-level chat pipeline. Prefix cache, sliding window, attention sink, streaming.</p>
+</div>
+<div class="flex flex-col border border-zinc-800/30 bg-zinc-900/20 rounded-lg px-5 py-4">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-500 text-sm font-medium">ion7-engram</span>
+    <span class="font-mono text-zinc-700 text-xs">research</span>
+  </div>
+  <p class="text-zinc-700 text-xs leading-relaxed">Sparse Autoencoder on LLM embeddings. Superposition hypothesis, 0.91 cosine reconstruction.</p>
+</div>
+<div class="flex flex-col border border-zinc-800/30 bg-zinc-900/20 rounded-lg px-5 py-4">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-500 text-sm font-medium">ion7-flow</span>
+    <span class="font-mono text-zinc-700 text-xs">PoC</span>
+  </div>
+  <p class="text-zinc-700 text-xs leading-relaxed">Visual node editor. React Flow &plus; Bun WebSocket &plus; LuaJIT executor.</p>
+</div>
+<div class="flex flex-col border border-zinc-800/30 bg-zinc-900/20 rounded-lg px-5 py-4">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-500 text-sm font-medium">ion7-nvim</span>
+    <span class="font-mono text-zinc-700 text-xs">plugin</span>
+  </div>
+  <p class="text-zinc-700 text-xs leading-relaxed">Neovim integration. Subprocess-based streaming token generation.</p>
+</div>
+<div class="flex flex-col border border-zinc-800/20 bg-zinc-900/10 rounded-lg px-5 py-4">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-700 text-sm font-medium">ion7-embed</span>
+    <span class="font-mono text-zinc-800 text-xs">planned</span>
+  </div>
+  <p class="text-zinc-800 text-xs leading-relaxed">Local embeddings without llama-server. Cosine similarity, pooling, batch encoding.</p>
+</div>
+<div class="flex flex-col border border-zinc-800/20 bg-zinc-900/10 rounded-lg px-5 py-4">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-700 text-sm font-medium">ion7-memory</span>
+    <span class="font-mono text-zinc-800 text-xs">planned</span>
+  </div>
+  <p class="text-zinc-800 text-xs leading-relaxed">3-layer persistent memory: hot index &plus; topics &plus; session archives.</p>
+</div>
+<div class="flex flex-col border border-zinc-800/20 bg-zinc-900/10 rounded-lg px-5 py-4">
+  <div class="flex items-baseline justify-between mb-2">
+    <span class="font-mono text-zinc-700 text-sm font-medium">ion7-rag</span>
+    <span class="font-mono text-zinc-800 text-xs">planned</span>
+  </div>
+  <p class="text-zinc-800 text-xs leading-relaxed">SQLite &plus; vector search. Query &rarr; embed &rarr; retrieve pipeline.</p>
+</div>
+  </div>
+</section>
+<footer class="border-t border-zinc-800/40 px-6 md:px-14 py-8">
+  <div class="max-w-5xl mx-auto flex items-center justify-between">
+    <span class="font-mono text-zinc-800 text-xs">ion7-labs &mdash; 2026</span>
+    <a href="api/" class="font-mono text-zinc-700 hover:text-zinc-500 text-xs transition-colors">API Reference &rarr;</a>
+  </div>
+</footer>
+
+</body>
+</html>

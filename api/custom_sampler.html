@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>custom_sampler &mdash; ion7 docs</title>
+  <script>
+    tailwind = { config: {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ["'JetBrains Mono'", "'Fira Code'", "ui-monospace", "monospace"],
+            sans: ["'Inter'", "system-ui", "sans-serif"],
+          }
+        }
+      }
+    }}
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html { background: #09090b; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    .fn-divider { border-top: 1px solid #1c1c1e; margin: 2rem 0; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-300 font-sans antialiased min-h-screen">
+<div class="flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="w-56 shrink-0 bg-zinc-950 border-r border-zinc-800/50 hidden lg:flex flex-col sticky top-0 h-screen overflow-y-auto">
+    <div class="px-4 py-4 border-b border-zinc-800/50">
+      <a href="index.html" class="flex items-center gap-1.5 group">
+        <span class="text-zinc-100 font-mono font-semibold text-sm">ion7</span>
+        <span class="text-zinc-700 font-mono text-sm">/</span>
+        <span class="text-zinc-600 font-mono text-sm">docs</span>
+      </a>
+    </div>
+    <nav class="flex-1 py-3 overflow-y-auto">
+      <div class="mb-5 px-2"><li><a href="index.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">README</a></li></div>
+<div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">ion7</p>
+  <ul class="space-y-px"><li><a href="ion7_core.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">core</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">model</p>
+  <ul class="space-y-px"><li><a href="model.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">model</a></li><li><a href="model_inspect.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">inspect</a></li><li><a href="model_meta.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">meta</a></li><li><a href="model_lora.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">lora</a></li><li><a href="model_quantize.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">quantize</a></li><li><a href="model_context_factory.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context_factory</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">context</p>
+  <ul class="space-y-px"><li><a href="context.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context</a></li><li><a href="context_decode.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">decode</a></li><li><a href="context_kv.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">kv</a></li><li><a href="context_state.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">state</a></li><li><a href="context_logits.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">logits</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">vocab</p>
+  <ul class="space-y-px"><li><a href="vocab.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">vocab</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">sampler</p>
+  <ul class="space-y-px"><li><a href="sampler.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">sampler</a></li><li><a href="sampler_common.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">common</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">custom_sampler</p>
+  <ul class="space-y-px"><li><a href="custom_sampler.html" class="block px-2 py-1.5 rounded text-zinc-100 bg-zinc-800/80 text-xs font-mono">custom_sampler</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">threadpool</p>
+  <ul class="space-y-px"><li><a href="threadpool.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">threadpool</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">speculative</p>
+  <ul class="space-y-px"><li><a href="speculative.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">speculative</a></li></ul>
+</div>
+    </nav>
+    <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
+      <span class="text-zinc-700 text-xs font-mono">v2.0.0</span>
+      <a href="../" class="text-zinc-800 hover:text-zinc-500 text-xs font-mono transition-colors">&larr; home</a>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <div class="flex-1 min-w-0 flex flex-col">
+    <header class="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur border-b border-zinc-800/50 px-6 py-2 flex items-center gap-4">
+      <div class="flex items-center gap-2 text-xs font-mono text-zinc-600 shrink-0">
+        <a href="index.html" class="hover:text-zinc-400 transition-colors">ion7-core</a> <span class="text-zinc-800">/</span> <span class="text-zinc-500">custom_sampler</span>
+      </div>
+      <!-- Search -->
+      <div class="flex-1 max-w-xs relative" id="search-container">
+        <input id="search-input" type="text" placeholder="Search functions..."
+          autocomplete="off" spellcheck="false"
+          class="w-full bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 focus:border-zinc-600 rounded px-3 py-1.5 text-xs font-mono text-zinc-300 placeholder-zinc-700 outline-none transition-colors" />
+        <div id="search-results"
+          class="hidden absolute top-full left-0 right-0 mt-1 bg-zinc-900 border border-zinc-800 rounded-lg shadow-xl overflow-hidden z-50 max-h-72 overflow-y-auto">
+        </div>
+      </div>
+    </header>
+    <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
+<p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">module</p>
+<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">custom_sampler</h1>
+<p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
+<div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
+<a href="#CustomSampler_new" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">CustomSampler.new</a>
+<a href="#CustomSampler_ptr" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">CustomSampler:ptr</a>
+<a href="#CustomSampler_name" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">CustomSampler:name</a>
+</div>
+<div id="CustomSampler_new" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">CustomSampler.new</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Create a custom sampler from Lua callbacks.
+Uses ion7_sampler_create (bridge) to safely wrap Lua functions as C callbacks.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">CustomSampler.new</span><span class="text-zinc-700">(</span><span class="text-zinc-500">name, callbacks</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">name</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">callbacks</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;CustomSampler</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="CustomSampler_ptr" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">CustomSampler:ptr</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">CustomSampler:ptr</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Raw llama_sampler* for passing to the sampler chain.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="CustomSampler_name" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">CustomSampler:name</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">CustomSampler:name</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+    </main>
+  </div>
+</div>
+<script>
+(function() {
+  var input = document.getElementById('search-input');
+  var box   = document.getElementById('search-results');
+  if (!input || !box) return;
+
+  var index = null;
+
+  fetch('search-index.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) { index = data; })
+    .catch(function() {});
+
+  input.addEventListener('input', function() {
+    var q = input.value.trim().toLowerCase();
+    if (!index || q.length < 2) { box.classList.add('hidden'); return; }
+
+    var results = [];
+    for (var i = 0; i < index.length; i++) {
+      var item = index[i];
+      if (item.name.toLowerCase().indexOf(q) !== -1 ||
+          (item.desc && item.desc.toLowerCase().indexOf(q) !== -1)) {
+        results.push(item);
+        if (results.length >= 12) break;
+      }
+    }
+
+    if (results.length === 0) { box.classList.add('hidden'); return; }
+
+    var html = '';
+    for (var j = 0; j < results.length; j++) {
+      var r = results[j];
+      var hl = r.name.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi'),
+               '<span class="text-zinc-100">$1</span>');
+      html += '<a href="' + r.href + '" class="flex items-baseline gap-3 px-3 py-2 hover:bg-zinc-800 border-b border-zinc-800/60 last:border-0 transition-colors">'
+            + '<span class="font-mono text-zinc-300 text-xs shrink-0">' + hl + '</span>'
+            + '<span class="text-zinc-600 text-xs truncate">' + (r.module || '') + '</span>'
+            + '</a>';
+    }
+    box.innerHTML = html;
+    box.classList.remove('hidden');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!document.getElementById('search-container').contains(e.target)) {
+      box.classList.add('hidden');
+    }
+  });
+
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { box.classList.add('hidden'); input.blur(); }
+  });
+})();
+</script>
+</body>
+</html>
