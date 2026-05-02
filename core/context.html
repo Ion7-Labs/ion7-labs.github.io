@@ -66,6 +66,18 @@
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">speculative</p>
   <ul class="space-y-px"><li><a href="speculative.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">speculative</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">utf8</p>
+  <ul class="space-y-px"><li><a href="utf8.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">utf8</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">base64</p>
+  <ul class="space-y-px"><li><a href="base64.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">base64</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">log</p>
+  <ul class="space-y-px"><li><a href="log.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">log</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">tensor</p>
+  <ul class="space-y-px"><li><a href="tensor.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">tensor</a></li></ul>
 </div>
     </nav>
     <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
@@ -92,76 +104,75 @@
     </header>
     <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
 <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">class</p>
-<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">Context</h1>
+<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">ion7.core.Context</h1>
 <div class="mb-8 bg-zinc-900/50 border border-zinc-800/60 rounded-lg overflow-hidden">
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
   <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_ptr</span>
   <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
-  <span class="text-zinc-600 text-xs">llama_context* (freed on GC via ffi.gc).</span>
+  <span class="text-zinc-600 text-xs">`llama_context*` (auto-freed via ffi.gc).</span>
 </div>
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
-  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_lib</span>
-  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
-  <span class="text-zinc-600 text-xs">libllama.so namespace.</span>
-</div>
-<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
-  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_bridge</span>
-  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
-  <span class="text-zinc-600 text-xs">ion7_bridge.so namespace.</span>
-</div>
-<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
-  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_past</span>
-  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">number</span>
-  <span class="text-zinc-600 text-xs">Current KV cache fill position.</span>
-</div>
-<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
-  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_batch</span>
-  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">number</span>
-  <span class="text-zinc-600 text-xs">Batch capacity (cached, immutable).</span>
-</div>
-<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
-  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_ctx</span>
-  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">number</span>
-  <span class="text-zinc-600 text-xs">Context window size (cached, immutable).</span>
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_model_ref</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">table</span>
+  <span class="text-zinc-600 text-xs">Parent Model — keeps the model alive as long as we are.</span>
 </div>
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
   <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_mem</span>
   <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
-  <span class="text-zinc-600 text-xs">llama_memory_t (cached, immutable).</span>
+  <span class="text-zinc-600 text-xs">`llama_memory_t` accessor (cached).</span>
 </div>
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
   <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_decode_batch</span>
   <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
-  <span class="text-zinc-600 text-xs">Pre-allocated batch, reused forever.</span>
+  <span class="text-zinc-600 text-xs">Pre-allocated `llama_batch` reused on every decode.</span>
 </div>
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
-  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_model_ref</span>
-  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">table?</span>
-  <span class="text-zinc-600 text-xs">Parent Model object (set by Model:context()).</span>
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_batch_gc</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
+  <span class="text-zinc-600 text-xs">GC sentinel that disposes of `_decode_batch`.</span>
 </div>
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
-  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_vocab</span>
-  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">number?</span>
-  <span class="text-zinc-600 text-xs">Vocabulary size (set by Model:context()).</span>
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_past</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">integer</span>
+  <span class="text-zinc-600 text-xs">Current KV fill position (Lua-side mirror).</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_batch</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">integer</span>
+  <span class="text-zinc-600 text-xs">Batch capacity (cached, immutable).</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_ctx</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">integer</span>
+  <span class="text-zinc-600 text-xs">Context window size (cached, immutable).</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_ubatch</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">integer</span>
+  <span class="text-zinc-600 text-xs">Micro-batch size (cached, immutable).</span>
+</div>
+<div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
+  <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_n_seq_max</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">integer</span>
+  <span class="text-zinc-600 text-xs">Maximum concurrent sequences (cached).</span>
 </div>
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
   <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_is_embed</span>
-  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">bool?</span>
-  <span class="text-zinc-600 text-xs">True when created via Model:embedding_context().</span>
+  <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">boolean?</span>
+  <span class="text-zinc-600 text-xs">Set by `Model:embedding_context`.</span>
 </div>
 </div>
 <p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
 <div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
 <a href="#Context_new" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context.new</a>
 <a href="#Context_ptr" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:ptr</a>
+<a href="#Context_memory" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:memory</a>
 <a href="#Context_free" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:free</a>
 <a href="#Context_n_ctx" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_ctx</a>
 <a href="#Context_n_batch" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_batch</a>
 <a href="#Context_n_ubatch" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_ubatch</a>
-<a href="#Context_n_past" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_past</a>
-<a href="#Context_set_n_past" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:set_n_past</a>
-<a href="#Context_n_ctx_seq" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_ctx_seq</a>
 <a href="#Context_n_seq_max" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_seq_max</a>
+<a href="#Context_n_ctx_seq" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_ctx_seq</a>
 <a href="#Context_n_threads" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_threads</a>
 <a href="#Context_n_threads_batch" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_threads_batch</a>
 <a href="#Context_set_n_threads" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:set_n_threads</a>
@@ -170,28 +181,41 @@
 <a href="#Context_set_causal_attn" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:set_causal_attn</a>
 <a href="#Context_set_warmup" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:set_warmup</a>
 <a href="#Context_synchronize" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:synchronize</a>
-<a href="#Context_memory_breakdown" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:memory_breakdown</a>
 <a href="#Context_set_abort_callback" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:set_abort_callback</a>
+<a href="#Context_n_past" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:n_past</a>
+<a href="#Context_set_n_past" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Context:set_n_past</a>
 </div>
 <div id="Context_new" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context.new</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Wrap a raw llama_context pointer.
-Prefer model:context() over calling this directly.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context.new</span><span class="text-zinc-700">(</span><span class="text-zinc-500">lib, bridge, ptr</span><span class="text-zinc-700">)</span></div>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Wrap a raw `llama_context*` returned by `llama_init_from_model`.
+Prefer `model:context()` over calling this directly — it does the
+params dance and the OOM-retry cascade for you.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context.new</span><span class="text-zinc-700">(</span><span class="text-zinc-500">model, ptr</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">lib</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">libllama.so FFI namespace.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">bridge</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">ion7_bridge.so FFI namespace.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ptr</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">llama_context* (will be freed on GC).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">model</span><span class="font-mono text-zinc-700 w-28 shrink-0">ion7.core.Model</span><span class="text-zinc-500">Parent model (back-reference for GC ordering).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ptr</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">`llama_context*` (will be freed on GC).</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Context</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;ion7.core.Context</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="Context_ptr" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:ptr</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the raw llama_context* (for passing to sampler:sample() etc.).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the raw `llama_context*` cdata pointer (used by samplers and
+any FFI call that needs the context handle).</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:ptr</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Context_memory" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:memory</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the cached `llama_memory_t` accessor for this context.
+Re-calling `llama_get_memory` on every KV op would be wasteful — we
+cache it once at construction.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:memory</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
@@ -199,8 +223,10 @@ Prefer model:context() over calling this directly.</p>
 <div class="fn-divider"></div>
 <div id="Context_free" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:free</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Explicitly free the context and release VRAM immediately.
-Normally handled by GC. Call this in tight loops to avoid OOM.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Explicitly free the context (and its batch buffers) immediately.
+Idempotent. Normally the GC handles this ; call it manually inside
+tight benchmark loops to avoid accumulating dead VRAM allocations
+between iterations.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:free</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 </div>
 <div class="fn-divider"></div>
@@ -208,7 +234,7 @@ Normally handled by GC. Call this in tight loops to avoid OOM.</p>
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_ctx</h3>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_ctx</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Context window size.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Context window size in tokens.</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
@@ -216,7 +242,7 @@ Normally handled by GC. Call this in tight loops to avoid OOM.</p>
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_batch</h3>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_batch</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Batch capacity.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Batch capacity (max tokens per `llama_decode` call).</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
@@ -224,33 +250,7 @@ Normally handled by GC. Call this in tight loops to avoid OOM.</p>
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_ubatch</h3>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_ubatch</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Micro-batch size.</span></div>
-</div>
-</div>
-<div class="fn-divider"></div>
-<div id="Context_n_past" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_past</h3>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_past</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Current KV fill position.</span></div>
-</div>
-</div>
-<div class="fn-divider"></div>
-<div id="Context_set_n_past" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:set_n_past</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Set the KV fill position (used after snapshot/restore to realign the Lua
-position tracker with the restored C-side state).</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:set_n_past</span><span class="text-zinc-700">(</span><span class="text-zinc-500">n</span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500"></span></div>
-</div>
-</div>
-<div class="fn-divider"></div>
-<div id="Context_n_ctx_seq" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_ctx_seq</h3>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_ctx_seq</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Context window per sequence.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Micro-batch size (the chunk the backend processes at once).</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
@@ -258,7 +258,15 @@ position tracker with the restored C-side state).</p>
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_seq_max</h3>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_seq_max</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Maximum concurrent sequences.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Maximum concurrent sequences.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Context_n_ctx_seq" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_ctx_seq</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_ctx_seq</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Per-sequence context window (asks llama.cpp live).</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
@@ -266,7 +274,7 @@ position tracker with the restored C-side state).</p>
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_threads</h3>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_threads</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Current thread count for generation.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Current generation thread count.</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
@@ -274,66 +282,94 @@ position tracker with the restored C-side state).</p>
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_threads_batch</h3>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_threads_batch</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Current thread count for batch processing.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Current batch processing thread count.</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="Context_set_n_threads" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:set_n_threads</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Dynamically change thread counts without recreating the context.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Update the thread counts on a live context — no recreate required.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:set_n_threads</span><span class="text-zinc-700">(</span><span class="text-zinc-500">n_threads, n_threads_batch</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_threads</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_threads_batch</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Defaults to n_threads.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_threads</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_threads_batch</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Defaults to `n_threads`.</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="Context_pooling_type" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:pooling_type</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Symbolic pooling strategy of the context, e.g. `"mean"` for an
+embedding context. See `POOLING_NAMES` for the full mapping.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:pooling_type</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">"none"|"mean"|"cls"|"last"|"rank"|"unspecified"</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="Context_set_embeddings" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:set_embeddings</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Toggle embedding extraction mode.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Toggle embedding extraction mode at runtime.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:set_embeddings</span><span class="text-zinc-700">(</span><span class="text-zinc-500">on</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">on</span><span class="font-mono text-zinc-700 w-28 shrink-0">boolean</span><span class="text-zinc-500"></span></div>
+</div>
 </div>
 <div class="fn-divider"></div>
 <div id="Context_set_causal_attn" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:set_causal_attn</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Toggle causal attention (false = bidirectional, for embedding models).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Toggle causal attention. Pass `false` to use bidirectional attention
+(the embedding mode used by encoder-style models).</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:set_causal_attn</span><span class="text-zinc-700">(</span><span class="text-zinc-500">on</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">on</span><span class="font-mono text-zinc-700 w-28 shrink-0">boolean</span><span class="text-zinc-500"></span></div>
+</div>
 </div>
 <div class="fn-divider"></div>
 <div id="Context_set_warmup" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:set_warmup</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Enable/disable warmup mode (skips perf counters during warmup pass).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Mark the context as "in warmup" so llama.cpp does not pollute its
+perf counters with the dummy decode shaders are JIT-compiling on.
+See `Context:warmup()` for the high-level helper.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:set_warmup</span><span class="text-zinc-700">(</span><span class="text-zinc-500">on</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">on</span><span class="font-mono text-zinc-700 w-28 shrink-0">boolean</span><span class="text-zinc-500"></span></div>
+</div>
 </div>
 <div class="fn-divider"></div>
 <div id="Context_synchronize" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:synchronize</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Synchronize GPU operations (wait for all async GPU work to complete).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Block until every async GPU command queued so far has finished.
+Useful before reading logits or tensors out of a backend buffer.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:synchronize</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
-</div>
-<div class="fn-divider"></div>
-<div id="Context_memory_breakdown" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:memory_breakdown</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Print a detailed memory breakdown to stderr (debugging).</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:memory_breakdown</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 </div>
 <div class="fn-divider"></div>
 <div id="Context_set_abort_callback" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:set_abort_callback</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Register an abort callback (called periodically during decode).
-Return true from cb to abort the current decode.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Register an abort callback that llama.cpp will poll periodically
+during a decode. Returning `true` from the callback aborts.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:set_abort_callback</span><span class="text-zinc-700">(</span><span class="text-zinc-500">cb, data</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">cb</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">C function pointer: bool(*)(void* data).</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">data</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata?</span><span class="text-zinc-500">User data passed to cb.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">cb</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">Function pointer of type `bool(*)(void* data)`.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">data</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata?</span><span class="text-zinc-500">Opaque user data forwarded to `cb`.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Context_n_past" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:n_past</h3>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:n_past</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Current Lua-tracked KV fill position. Mirrors what we</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Context_set_n_past" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Context:set_n_past</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Manually realign the Lua-side `n_past` mirror after a state restore
+(when llama.cpp resumes from a snapshot it knows the position but
+we don't). Most callers should NOT need this.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Context:set_n_past</span><span class="text-zinc-700">(</span><span class="text-zinc-500">n</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500"></span></div>
 </div>
 </div>
     </main>

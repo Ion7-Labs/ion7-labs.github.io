@@ -66,6 +66,18 @@
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">speculative</p>
   <ul class="space-y-px"><li><a href="speculative.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">speculative</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">utf8</p>
+  <ul class="space-y-px"><li><a href="utf8.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">utf8</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">base64</p>
+  <ul class="space-y-px"><li><a href="base64.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">base64</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">log</p>
+  <ul class="space-y-px"><li><a href="log.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">log</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">tensor</p>
+  <ul class="space-y-px"><li><a href="tensor.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">tensor</a></li></ul>
 </div>
     </nav>
     <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
@@ -96,8 +108,6 @@
 <p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
 <div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
 <a href="#M_logits" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.logits</a>
-<a href="#M_logprob" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.logprob</a>
-<a href="#M_entropy" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.entropy</a>
 <a href="#M_sampled_token" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.sampled_token</a>
 <a href="#M_sampled_probs" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.sampled_probs</a>
 <a href="#M_sampled_probs_count" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.sampled_probs_count</a>
@@ -105,6 +115,10 @@
 <a href="#M_sampled_logits_count" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.sampled_logits_count</a>
 <a href="#M_sampled_candidates" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.sampled_candidates</a>
 <a href="#M_sampled_candidates_count" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.sampled_candidates_count</a>
+<a href="#prepare_softmax" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">prepare_softmax</a>
+<a href="#M_logprob" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.logprob</a>
+<a href="#M_entropy" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.entropy</a>
+<a href="#M_logprob_entropy" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.logprob_entropy</a>
 <a href="#M_embedding_ptr" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.embedding_ptr</a>
 <a href="#M_embedding" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.embedding</a>
 <a href="#M_set_control_vector" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.set_control_vector</a>
@@ -115,87 +129,65 @@
 <a href="#M_perf_print" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.perf_print</a>
 <a href="#M_perf_reset" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.perf_reset</a>
 <a href="#M_perf" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.perf</a>
+<a href="#M_warmup" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.warmup</a>
 </div>
 <div id="M_logits" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.logits</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the raw logit array for batch position idx.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Raw logits buffer for batch position `idx`. Returns a `float*` cdata
+that is OWNED by the context — do not free, do not retain past the
+next decode.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.logits</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, idx</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">idx</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Batch position (usually 0 after decode_single).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">idx</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Default 0 (typical after `decode_single`).</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">float* into the context's logit buffer (not owned, do not free).</span></div>
-</div>
-</div>
-<div class="fn-divider"></div>
-<div id="M_logprob" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.logprob</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Compute log-probability of token_id at batch position idx.
-Delegates to C (ion7_logprob) - iterates n_vocab floats ~50x faster than Lua.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.logprob</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, idx, token_id</span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">idx</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Batch position.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Token to evaluate.</span></div>
-</div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Log-probability (negative; closer to 0 = more likely).</span></div>
-</div>
-</div>
-<div class="fn-divider"></div>
-<div id="M_entropy" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.entropy</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Compute Shannon entropy of the logit distribution at batch position idx.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.entropy</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, idx</span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">idx</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Batch position.</span></div>
-</div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Entropy in nats (>= 0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_sampled_token" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.sampled_token</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Get the sampled token at batch position i (after decode + sampler:sample()).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Sampled token at batch position `i`, or `-1` if not available.
+(Set by an attached `llama_set_sampler` ; see `Context:set_sampler`.)</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.sampled_token</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, i</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Batch position (default 0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Token ID, or -1 if not available.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_sampled_probs" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.sampled_probs</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the probability array for the sampled token at position i.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Probability array for the sampled token at position `i`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.sampled_probs</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, i</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Batch position.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">float* (raw, not owned). May be NULL.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">float* (raw, not owned).</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_sampled_probs_count" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.sampled_probs_count</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the count of probabilities in sampled_probs(i).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Count matching `sampled_probs(i)`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.sampled_probs_count</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, i</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_sampled_logits" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.sampled_logits</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the logit array for the sampled candidates at position i.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Logit array for the sampled candidates at position `i`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.sampled_logits</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, i</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">float* (raw, not owned).</span></div>
@@ -204,22 +196,22 @@ Delegates to C (ion7_logprob) - iterates n_vocab floats ~50x faster than Lua.</p
 <div class="fn-divider"></div>
 <div id="M_sampled_logits_count" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.sampled_logits_count</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the count of logits in sampled_logits(i).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Count matching `sampled_logits(i)`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.sampled_logits_count</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, i</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_sampled_candidates" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.sampled_candidates</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the candidate token array at position i.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Candidate-token array at position `i`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.sampled_candidates</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, i</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">llama_token* (raw, not owned).</span></div>
@@ -228,113 +220,188 @@ Delegates to C (ion7_logprob) - iterates n_vocab floats ~50x faster than Lua.</p
 <div class="fn-divider"></div>
 <div id="M_sampled_candidates_count" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.sampled_candidates_count</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the count of candidates in sampled_candidates(i).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Count matching `sampled_candidates(i)`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.sampled_candidates_count</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, i</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">i</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="prepare_softmax" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">prepare_softmax</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Internal : numerically-stable log-softmax preparation. Returns
+`(logits, n, max_l, sum)` for reuse by the public methods. When the
+batch has no logits at `idx`, `logits` is nil.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">prepare_softmax</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, idx</span><span class="text-zinc-700">)</span></div>
+</div>
+<div class="fn-divider"></div>
+<div id="M_logprob" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.logprob</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Log-probability of `token_id` given the logits at batch position
+`idx`. Returns `-math.huge` when the token is out of vocab range or
+the batch slot has no logits.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.logprob</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, idx, token_id</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">idx</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
-<div id="M_embedding_ptr" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.embedding_ptr</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the raw embedding pointer for a sequence (zero-copy).
-Caller must not free this pointer and must not outlive the context.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.embedding_ptr</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, seq_id</span><span class="text-zinc-700">)</span></div>
+<div id="M_entropy" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.entropy</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Shannon entropy (in nats) of the logit distribution at batch
+position `idx`. Returns `0` when no logits are available.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.entropy</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, idx</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Sequence ID (default 0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">idx</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">float* or nil.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="M_logprob_entropy" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.logprob_entropy</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Combined `logprob` and `entropy` in ONE pass over `n_vocab`. Use
+when both metrics are needed — halves the work compared to two
+separate calls.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.logprob_entropy</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, idx, token_id</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">idx</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">logprob (`-math.huge` on error).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">entropy (`0` on error).</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="M_embedding_ptr" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.embedding_ptr</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Raw embedding cdata pointer for a sequence (zero-copy). Falls back
+to the per-batch embedding when the sequence-keyed accessor returns
+nil. Caller must NOT free and must NOT retain past the next decode.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.embedding_ptr</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, seq_id</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Default 0.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata|nil</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">`float*` or nil if no embedding is available.</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_embedding" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.embedding</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the pooled embedding as a Lua table (copies floats from C).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Pooled embedding as a Lua table (1-based, copies the floats out so
+the caller can hold it past the next decode).</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.embedding</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, seq_id, dim</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Sequence ID (default 0).</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dim</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Embedding dimension (default: from model ref or 4096).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Default 0.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dim</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Embedding dimension. Defaults to the model's</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">float[] (1-based), or nil if not available.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table|nil</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_set_control_vector" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.set_control_vector</h3>
 <p class="text-zinc-400 text-sm leading-relaxed mb-4">Apply a control vector (activation steering) to this context.
-Takes effect on the next decode.</p>
+Effective on the next decode. Pass either a Lua table (we'll copy
+to a float buffer) or a pre-built cdata `float*`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.set_control_vector</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, data, n_embd, il_start, il_end</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">data</span><span class="font-mono text-zinc-700 w-28 shrink-0">table|cdata</span><span class="text-zinc-500">float[] of n_embd × (il_end - il_start + 1) values.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_embd</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Embedding dimension.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">il_start</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">First layer (inclusive).</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">il_end</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500">Last layer (inclusive).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">data</span><span class="font-mono text-zinc-700 w-28 shrink-0">table|cdata</span><span class="text-zinc-500">`n_embd × (il_end - il_start + 1)` floats.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_embd</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500">Embedding dimension.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">il_start</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500">First layer (inclusive).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">il_end</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500">Last layer  (inclusive).</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_clear_control_vector" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.clear_control_vector</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Clear any active control vector.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Remove any previously-applied control vector.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.clear_control_vector</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self</span><span class="text-zinc-700">)</span></div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_set_sampler" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.set_sampler</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Assign a sampler to a specific sequence. [EXPERIMENTAL]
-When set, llama_decode() samples automatically using this sampler for seq_id.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Attach a sampler to a specific sequence. After this, `llama_decode`
+will sample automatically using `sampler` whenever it processes
+`seq_id`. EXPERIMENTAL upstream — the surface may shift.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.set_sampler</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, seq_id, sampler</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">sampler</span><span class="font-mono text-zinc-700 w-28 shrink-0">Sampler</span><span class="text-zinc-500">Must remain alive for the duration.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">sampler</span><span class="font-mono text-zinc-700 w-28 shrink-0">ion7.core.Sampler|cdata</span><span class="text-zinc-500">Either a Sampler instance</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_attach_threadpool" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.attach_threadpool</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Attach a custom threadpool to this context.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Attach a CPU threadpool to this context. `tp` may be either a raw
+`ggml_threadpool_t` cdata or a `Threadpool` instance.
+
+The second pool slot is for batch operations and defaults to NULL,
+which tells llama.cpp to fall back to the primary pool internally
+— passing the same pool twice via two distinct attach calls would
+corrupt the pool's wait state.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.attach_threadpool</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, tp, tp_batch</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tp</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata|Threadpool</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tp_batch</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata|Threadpool?</span><span class="text-zinc-500">Defaults to tp.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tp</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata|ion7.core.Threadpool</span><span class="text-zinc-500">Primary pool.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tp_batch</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata|ion7.core.Threadpool?</span><span class="text-zinc-500">Optional dedicated batch pool.</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_detach_threadpool" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.detach_threadpool</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Detach the current threadpool (reverts to internal auto-managed pool).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Detach the current threadpool (reverts to llama.cpp's internal one).</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.detach_threadpool</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self</span><span class="text-zinc-700">)</span></div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_perf_print" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.perf_print</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Print performance counters to stderr.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Print perf counters to stderr.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.perf_print</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self</span><span class="text-zinc-700">)</span></div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_perf_reset" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.perf_reset</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Reset performance counters.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Reset every perf counter to zero.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.perf_reset</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self</span><span class="text-zinc-700">)</span></div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_perf" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.perf</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return performance data as a Lua table.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Read the perf counters into a Lua table.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.perf</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">{ t_load_ms, t_p_eval_ms, t_eval_ms, n_p_eval, n_eval, n_reused, tokens_per_s }</span></div>
 </div>
+</div>
+<div class="fn-divider"></div>
+<div id="M_warmup" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.warmup</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Run a single dummy decode through this context to force the GPU
+backend to JIT-compile its shaders. After the call the KV cache is
+wiped and `n_past` reset, so the context is left in the same state
+it would have been right after creation — minus the cold-shader
+penalty on the next real decode.
+
+Use once, right after `model:context()` and before any real work, to
+shave 1-3 s off the time-to-first-token of the first real request.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.warmup</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self</span><span class="text-zinc-700">)</span></div>
 </div>
     </main>
   </div>

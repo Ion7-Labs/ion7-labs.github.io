@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>context.decode &mdash; ion7 docs</title>
+  <title>tensor &mdash; ion7 docs</title>
   <script>
     tailwind = { config: {
       theme: {
@@ -50,7 +50,7 @@
   <ul class="space-y-px"><li><a href="model.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">model</a></li><li><a href="model_inspect.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">inspect</a></li><li><a href="model_meta.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">meta</a></li><li><a href="model_lora.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">lora</a></li><li><a href="model_quantize.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">quantize</a></li><li><a href="model_context_factory.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context_factory</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">context</p>
-  <ul class="space-y-px"><li><a href="context.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context</a></li><li><a href="context_decode.html" class="block px-2 py-1.5 rounded text-zinc-100 bg-zinc-800/80 text-xs font-mono">decode</a></li><li><a href="context_kv.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">kv</a></li><li><a href="context_state.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">state</a></li><li><a href="context_logits.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">logits</a></li></ul>
+  <ul class="space-y-px"><li><a href="context.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">context</a></li><li><a href="context_decode.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">decode</a></li><li><a href="context_kv.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">kv</a></li><li><a href="context_state.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">state</a></li><li><a href="context_logits.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">logits</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">vocab</p>
   <ul class="space-y-px"><li><a href="vocab.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">vocab</a></li></ul>
@@ -77,7 +77,7 @@
   <ul class="space-y-px"><li><a href="log.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">log</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">tensor</p>
-  <ul class="space-y-px"><li><a href="tensor.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">tensor</a></li></ul>
+  <ul class="space-y-px"><li><a href="tensor.html" class="block px-2 py-1.5 rounded text-zinc-100 bg-zinc-800/80 text-xs font-mono">tensor</a></li></ul>
 </div>
     </nav>
     <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
@@ -90,7 +90,7 @@
   <div class="flex-1 min-w-0 flex flex-col">
     <header class="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur border-b border-zinc-800/50 px-6 py-2 flex items-center gap-4">
       <div class="flex items-center gap-2 text-xs font-mono text-zinc-600 shrink-0">
-        <a href="index.html" class="hover:text-zinc-400 transition-colors">ion7-core</a> <span class="text-zinc-800">/</span> <span class="text-zinc-500">context.decode</span>
+        <a href="index.html" class="hover:text-zinc-400 transition-colors">ion7-core</a> <span class="text-zinc-800">/</span> <span class="text-zinc-500">tensor</span>
       </div>
       <!-- Search -->
       <div class="flex-1 max-w-xs relative" id="search-container">
@@ -104,75 +104,84 @@
     </header>
     <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
 <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">module</p>
-<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">context.decode</h1>
+<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">tensor</h1>
 <p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
 <div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
-<a href="#M_decode" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.decode</a>
-<a href="#M_decode_single" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.decode_single</a>
-<a href="#M_decode_multi" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.decode_multi</a>
-<a href="#M_encode" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.encode</a>
+<a href="#M_name" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.name</a>
+<a href="#M_type" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.type</a>
+<a href="#M_ne" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.ne</a>
+<a href="#M_nbytes" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.nbytes</a>
+<a href="#M_copy_f32" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">M.copy_f32</a>
 </div>
-<div id="M_decode" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.decode</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Decode `n_tokens` tokens, updating the KV cache and producing logits
-for the LAST token only.
+<div id="M_name" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.name</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the tensor's name as a Lua string. Empty string if `t` is `nil`
+(matches the C bridge's `""` sentinel).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.name</span><span class="text-zinc-700">(</span><span class="text-zinc-500">t</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">t</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">`ggml_tensor*`, may be NULL.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="M_type" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.type</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the tensor's `ggml_type` enum value as a Lua integer, or `-1`
+if `t` is `nil`.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.type</span><span class="text-zinc-700">(</span><span class="text-zinc-500">t</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">t</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">`ggml_tensor*`, may be NULL.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="M_ne" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.ne</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the size of dimension `dim` (0..3) in elements, or `0` if `t`
+is `nil` or `dim` is out of range.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.ne</span><span class="text-zinc-700">(</span><span class="text-zinc-500">t, dim</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">t</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">`ggml_tensor*`.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dim</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500">Dimension index in `[0, 3]`.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="M_nbytes" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.nbytes</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the total byte size of the tensor data (calls `ggml_nbytes`).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.nbytes</span><span class="text-zinc-700">(</span><span class="text-zinc-500">t</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">t</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">`ggml_tensor*`.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Byte count, or 0 when `t` is `nil`.</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="M_copy_f32" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.copy_f32</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Copy the tensor's data into a caller-provided F32 cdata buffer.
 
-The function chunks automatically when `n_tokens > n_batch` so the
-caller can pass an arbitrarily long prompt. The returned value is the
-size of the LAST chunk — that's the upper bound for `idx` arguments
-to `Sampler:sample(ctx:ptr(), idx)` afterwards.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.decode</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, tokens, n_tokens, seq_id, pos_offset</span><span class="text-zinc-700">)</span></div>
+Handles CPU, CUDA, Metal and Vulkan backends transparently via
+`ggml_backend_tensor_get`. F16 and BF16 source tensors are
+up-converted to F32 row-wise. Quantised types (Q4_K, Q5_K, ...) are
+intentionally NOT supported — callers should dequantise upstream.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.copy_f32</span><span class="text-zinc-700">(</span><span class="text-zinc-500">t, dst, dst_count</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata|table</span><span class="text-zinc-500">Token IDs. Lua tables are 1-based ;</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Required for cdata, auto for tables.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Sequence ID (default 0).</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">pos_offset</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Starting KV position (default `n_past`).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">t</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">`ggml_tensor*`.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dst</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">`float*` writable buffer.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dst_count</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500">Capacity of `dst` in floats.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Last chunk size.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Number of floats actually written, or `-1`</span></div>
 </div>
-<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; On KV-full or any other `llama_decode` error.</p>
-</div>
-<div class="fn-divider"></div>
-<div id="M_decode_single" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.decode_single</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Decode ONE token. Logits enabled for it. Skips the chunking loop and
-the table-vs-cdata branch — the JIT loves this path.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.decode_single</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, token, seq_id</span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer</span><span class="text-zinc-500">Token ID to decode.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Sequence ID (default 0).</span></div>
-</div>
-<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; On any `llama_decode` error.</p>
-</div>
-<div class="fn-divider"></div>
-<div id="M_decode_multi" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.decode_multi</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Decode `#tokens` tokens with logits enabled for EVERY position. After
-this call, `Sampler:sample(ctx:ptr(), i)` is valid for `i` in
-`0 .. #tokens - 1`. Used by speculative decoding to verify all draft
-positions in a single forward pass.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.decode_multi</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, tokens, seq_id</span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">1-based Lua table of token IDs.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Sequence ID (default 0).</span></div>
-</div>
-<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; When `#tokens` exceeds the batch capacity, or on decode error.</p>
-</div>
-<div class="fn-divider"></div>
-<div id="M_encode" class="scroll-mt-20">
-<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.encode</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Encode `n_tokens` tokens through the model's encoder stack. Used by
-encoder-decoder architectures (T5, BART, ...). Like `decode`, handles
-chunking and both table / cdata token layouts.</p>
-<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.encode</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, tokens, n_tokens, seq_id, pos_offset</span><span class="text-zinc-700">)</span></div>
-<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata|table</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">pos_offset</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500"></span></div>
-</div>
-<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; On any `llama_encode` error.</p>
 </div>
     </main>
   </div>

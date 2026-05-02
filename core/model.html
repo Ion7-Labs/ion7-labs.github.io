@@ -66,6 +66,18 @@
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">speculative</p>
   <ul class="space-y-px"><li><a href="speculative.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">speculative</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">utf8</p>
+  <ul class="space-y-px"><li><a href="utf8.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">utf8</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">base64</p>
+  <ul class="space-y-px"><li><a href="base64.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">base64</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">log</p>
+  <ul class="space-y-px"><li><a href="log.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">log</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">tensor</p>
+  <ul class="space-y-px"><li><a href="tensor.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">tensor</a></li></ul>
 </div>
     </nav>
     <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
@@ -92,31 +104,22 @@
     </header>
     <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
 <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">class</p>
-<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">Model</h1>
-<pre class="bg-zinc-900 border border-zinc-800 rounded-lg px-5 py-4 text-xs font-mono text-zinc-300 overflow-x-auto leading-relaxed mb-6"><code>local llama = require "ion7.core"
-llama.init({ log_level = 1 })
-
-local model = llama.Model.load("qwen3.5-27b.gguf", { n_gpu_layers = 25 })
-print(model:desc())           -- "Qwen3 27B Q4_K_M"
-print(model:n_params() / 1e9) -- 27.36 (billions)
-print(model:is_recurrent())   -- false
-
-local ctx   = model:context({ n_ctx = 65536, kv_type = "q8_0" })
-local vocab = model:vocab()</code></pre>
+<h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">ion7.core.Model</h1>
 <div class="mb-8 bg-zinc-900/50 border border-zinc-800/60 rounded-lg overflow-hidden">
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
   <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">_ptr</span>
   <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">cdata</span>
-  <span class="text-zinc-600 text-xs">llama_model* (freed on GC).</span>
+  <span class="text-zinc-600 text-xs">Underlying `llama_model*` (auto-freed via ffi.gc).</span>
 </div>
 <div class="flex items-baseline gap-0 px-4 py-2.5 border-b border-zinc-800/40 last:border-0">
   <span class="font-mono text-zinc-300 text-xs w-40 shrink-0">path</span>
   <span class="font-mono text-zinc-600 text-xs w-28 shrink-0">string</span>
-  <span class="text-zinc-600 text-xs">Path to the source GGUF file.</span>
+  <span class="text-zinc-600 text-xs">Origin path (or "<file_ptr>" / "<splits>").</span>
 </div>
 </div>
 <p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
 <div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
+<a href="#build_model_params" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">build_model_params</a>
 <a href="#Model_load" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Model.load</a>
 <a href="#Model_load_splits" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Model.load_splits</a>
 <a href="#Model_load_from_fd" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Model.load_from_fd</a>
@@ -125,66 +128,86 @@ local vocab = model:vocab()</code></pre>
 <a href="#Model_free" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Model:free</a>
 <a href="#Model_save" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Model:save</a>
 </div>
+<div id="build_model_params" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">build_model_params</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build a `llama_model_params` cdata from the user-facing options table.
+Defaults match `llama_model_default_params` ; only the four flags we
+expose at the Lua level get overridden.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">build_model_params</span><span class="text-zinc-700">(</span><span class="text-zinc-500">opts</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">`struct llama_model_params`</span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
 <div id="Model_load" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Model.load</h3>
 <p class="text-zinc-400 text-sm leading-relaxed mb-4">Load a GGUF model from disk.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Model.load</span><span class="text-zinc-700">(</span><span class="text-zinc-500">path, opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Absolute path to the .gguf file.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Absolute path to the `.gguf` file.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">Optional :</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Model</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;ion7.core.Model</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
-<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; If the file cannot be loaded.</p>
+<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; When the file cannot be opened or the model fails to load.</p>
 </div>
 <div class="fn-divider"></div>
 <div id="Model_load_splits" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Model.load_splits</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Load a sharded GGUF model from multiple files.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Load a sharded GGUF model from an explicit list of paths.
+
+Use when the shards do not follow the standard auto-discovery naming
+(`model-00001-of-NNNN.gguf`). Paths must be in shard order.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Model.load_splits</span><span class="text-zinc-700">(</span><span class="text-zinc-500">paths, opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">paths</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500">Array of paths to GGUF shard files (in shard order).</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">Same options as Model.load().</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">paths</span><span class="font-mono text-zinc-700 w-28 shrink-0">string[]</span><span class="text-zinc-500">Array of GGUF shard file paths.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">Same shape as `Model.load`.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Model</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;ion7.core.Model</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
-<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; If loading fails.</p>
+<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; When loading fails.</p>
 </div>
 <div class="fn-divider"></div>
 <div id="Model_load_from_fd" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Model.load_from_fd</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Load a model from an already-open FILE* handle.
-
-The caller owns the file - it is NOT closed by this call.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Load a model from an already-open `FILE*` handle. The caller retains
+ownership of the FILE — it is NOT closed by this call.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Model.load_from_fd</span><span class="text-zinc-700">(</span><span class="text-zinc-500">file, opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">file</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">FILE* (from ffi.C.fopen or similar).</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">file</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata</span><span class="text-zinc-500">`FILE*` (from `ffi.C.fopen` or similar).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">Same shape as `Model.load`.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Model</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;ion7.core.Model</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
-<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; If loading fails.</p>
+<p class="text-xs font-mono text-zinc-700 mt-1 mb-3">raises &mdash; When loading fails.</p>
 </div>
 <div class="fn-divider"></div>
 <div id="Model_fit_params" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Model.fit_params</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Auto-fit model and context parameters to available device VRAM.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Auto-fit a model's `n_gpu_layers` and `n_ctx` to the available VRAM.
+
+Wraps the bridge's `ion7_params_fit`, which itself wraps libcommon's
+`common_fit_params`. NOT thread-safe — call before any other model
+load on the same process.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Model.fit_params</span><span class="text-zinc-700">(</span><span class="text-zinc-500">path, opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Path to GGUF file (for size estimation).</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Absolute path to the `.gguf` file.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500">Optional :</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table?</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">{ n_gpu_layers, n_ctx } or nil if no fit found.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;table|nil</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">`{ n_gpu_layers, n_ctx }` on success, nil if the</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="Model_ptr" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Model:ptr</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the raw llama_model*.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the raw `llama_model*` cdata pointer.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Model:ptr</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;cdata</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
@@ -193,18 +216,20 @@ The caller owns the file - it is NOT closed by this call.</p>
 <div class="fn-divider"></div>
 <div id="Model_free" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Model:free</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Explicitly free the model and release VRAM immediately.
-After free(), this object must not be used.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Explicitly free the model and release VRAM immediately. After this
+the Model object is dead — calling any other method on it is
+undefined. The `ffi.gc` finalizer is disarmed first to avoid a
+double-free if the GC runs later.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Model:free</span><span class="text-zinc-700">(</span><span class="text-zinc-500"></span><span class="text-zinc-700">)</span></div>
 </div>
 <div class="fn-divider"></div>
 <div id="Model_save" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Model:save</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Save the model to a GGUF file.
-Useful after applying quantization or merging LoRA adapters.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Save the (possibly modified) model back to a GGUF file. Useful after
+applying quantization or merging LoRA adapters.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Model:save</span><span class="text-zinc-700">(</span><span class="text-zinc-500">path</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Output file path.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Output GGUF file path.</span></div>
 </div>
 </div>
     </main>

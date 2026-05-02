@@ -66,6 +66,18 @@
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">speculative</p>
   <ul class="space-y-px"><li><a href="speculative.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">speculative</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">utf8</p>
+  <ul class="space-y-px"><li><a href="utf8.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">utf8</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">base64</p>
+  <ul class="space-y-px"><li><a href="base64.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">base64</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">log</p>
+  <ul class="space-y-px"><li><a href="log.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">log</a></li></ul>
+</div><div class="mb-5 px-2">
+  <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">tensor</p>
+  <ul class="space-y-px"><li><a href="tensor.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">tensor</a></li></ul>
 </div>
     </nav>
     <div class="px-4 py-3 border-t border-zinc-800/50 flex items-center justify-between">
@@ -107,113 +119,124 @@
 </div>
 <div id="M_save_state" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.save_state</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Save the full context state to a file (KV cache + RNG state).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Save the full context state to a file. The optional `tokens` cdata
+is embedded so a downstream `load_state` can recover the original
+prompt alongside the KV cache.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.save_state</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, path, tokens, n_tokens</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Output file path.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata?</span><span class="text-zinc-500">Token sequence to embed (may be nil).</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Length of tokens array.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata?</span><span class="text-zinc-500">Optional `llama_token[]` to embed.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">n_tokens</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Length of `tokens`.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_load_state" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.load_state</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Restore full context state from a file saved via save_state().</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Restore the full context state from a file written by `save_state`.
+When `token_buf` is provided we also recover the embedded prompt
+token sequence ; the Lua-side `n_past` mirror is updated to match
+the restored fill position.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.load_state</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, path, token_buf, token_capacity</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token_buf</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata?</span><span class="text-zinc-500">Buffer to receive the stored token sequence.</span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token_capacity</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token_buf</span><span class="font-mono text-zinc-700 w-28 shrink-0">cdata?</span><span class="text-zinc-500">Buffer to receive the embedded tokens.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">token_capacity</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Capacity of `token_buf`.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool,</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">number  success, number of tokens restored.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">ok</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">n_tokens_restored</span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_snapshot" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.snapshot</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Serialise the full state to an in-memory Lua string (no filesystem I/O).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Serialise the full state into a Lua string (zero file I/O).
+Returns nil if `llama_state_get_size` reports 0 bytes.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.snapshot</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string?</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Binary blob, or nil on failure.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string|nil</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_restore" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.restore</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Restore state from a snapshot string produced by snapshot().</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Restore state from a `snapshot` blob. Does NOT update the Lua-side
+`n_past` mirror (the snapshot does not carry it) — call
+`Context:set_n_past(n)` after if you need to resume position-aware
+decoding.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.restore</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, blob</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">blob</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_seq_state_size" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.seq_state_size</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Return the byte size of the KV state for a single sequence.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Byte size of the state for a single sequence — useful to pre-size
+caller-side buffers before `seq_snapshot`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.seq_state_size</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, seq_id</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">(default 0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Default 0.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_seq_save_state" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.seq_save_state</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Save the KV state for a single sequence to a file.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Save a single sequence's KV state to a file.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.seq_save_state</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, path, seq_id</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">(default 0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Default 0.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_seq_load_state" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.seq_load_state</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Load the KV state for a single sequence from a file.</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Load a sequence's KV state from a file into `dst_seq_id`.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.seq_load_state</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, path, dst_seq_id</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">path</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dst_seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">(default 0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dst_seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Default 0.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;bool</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;boolean</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_seq_snapshot" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.seq_snapshot</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Serialise the KV state for a single sequence to a Lua string (no I/O).</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Serialise a single sequence's KV state into a Lua string.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.seq_snapshot</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, seq_id</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Sequence ID (default 0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Default 0.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string?</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Binary blob, or nil on failure.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;string|nil</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
 </div>
 </div>
 <div class="fn-divider"></div>
 <div id="M_seq_restore" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">M.seq_restore</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Restore the KV state for a single sequence from a blob produced by seq_snapshot().</p>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Restore a sequence's KV state from a `seq_snapshot` blob.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">M.seq_restore</span><span class="text-zinc-700">(</span><span class="text-zinc-500">self, blob, dst_seq_id</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">blob</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dst_seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">number?</span><span class="text-zinc-500">Destination sequence ID (default 0).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">dst_seq_id</span><span class="font-mono text-zinc-700 w-28 shrink-0">integer?</span><span class="text-zinc-500">Default 0.</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;number</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Bytes consumed, or 0 on failure.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;integer</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500">Bytes consumed (0 on failure).</span></div>
 </div>
 </div>
     </main>
