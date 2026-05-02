@@ -52,11 +52,11 @@
   </p>
   <div class="flex flex-wrap gap-6 pb-8 border-b border-zinc-800/40">
     <div>
-      <span class="font-mono text-zinc-100 text-2xl font-semibold">345</span>
+      <span class="font-mono text-zinc-100 text-2xl font-semibold">474</span>
       <span class="font-mono text-zinc-700 text-xs ml-2">documented functions</span>
     </div>
     <div>
-      <span class="font-mono text-zinc-100 text-2xl font-semibold">2</span>
+      <span class="font-mono text-zinc-100 text-2xl font-semibold">3</span>
       <span class="font-mono text-zinc-700 text-xs ml-2">modules available</span>
     </div>
     <div>
@@ -90,6 +90,16 @@
   <p class="text-zinc-700 text-xs leading-relaxed mb-4">GrammarContext for stateful SQL agents. DCCD for Qwen3/DeepSeek-R1 thinking models. Grammar composition algebra (union, sequence, wrap).</p>
   <span class="font-mono text-zinc-600 group-hover:text-zinc-300 text-xs transition-colors">API Reference &rarr;</span>
 </a>
+<a href="llm/" class="group flex flex-col bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800/60 hover:border-zinc-600 rounded-lg px-5 py-5 transition-all">
+  <div class="flex items-baseline justify-between mb-3">
+    <span class="font-mono text-zinc-100 group-hover:text-white text-sm font-semibold transition-colors">ion7-llm</span>
+    <span class="font-mono text-zinc-500 text-xs border border-zinc-700/60 px-2 py-0.5 rounded">beta v0.2</span>
+  </div>
+  <div class="flex flex-wrap gap-1 mb-3"><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">chat</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">multi-session</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">RadixAttention</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">streaming</span></div>
+  <p class="text-zinc-500 text-xs leading-relaxed mb-3 flex-1">Chat pipeline + multi-session inference orchestration. Per-seq KV snapshots, prefix cache, slot pool, fork. Engine + Pool (~6&times; aggregate speedup).</p>
+  <p class="text-zinc-700 text-xs leading-relaxed mb-4">Mid-generation eviction, RadixAttention exact-match prefix cache, Y-Token sink hook. 4-channel streaming (content/thinking/tool_call_delta/tool_call_done/stop). Format-aware tool extraction (OpenAI/Qwen/Mistral/Hermes). Interleaved-thinking tool loop. Reasoning budget. Embeddings.</p>
+  <span class="font-mono text-zinc-600 group-hover:text-zinc-300 text-xs transition-colors">API Reference &rarr;</span>
+</a>
   </div>
 </section>
 <section class="max-w-5xl mx-auto px-6 md:px-14 pb-12">
@@ -97,15 +107,6 @@
     In Development &mdash; docs coming
   </p>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-<div class="flex flex-col border border-zinc-800/40 bg-zinc-900/20 rounded-lg px-5 py-5">
-  <div class="flex items-baseline justify-between mb-3">
-    <span class="font-mono text-zinc-400 text-sm font-medium">ion7-llm</span>
-    <span class="font-mono text-zinc-600 text-xs border border-zinc-800/40 px-2 py-0.5 rounded">beta v0.1</span>
-  </div>
-  <div class="flex flex-wrap gap-1 mb-3"><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">chat</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">streaming</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">speculative</span></div>
-  <p class="text-zinc-600 text-xs leading-relaxed mb-3 flex-1">High-level chat pipeline on ion7-core. Prefix cache, sliding window, attention sink, multi-session batch, on_evict hook, tool calling ReAct loop.</p>
-  <p class="text-zinc-700 text-xs leading-relaxed">Entropy-adaptive speculative decoding (EAGLE3 + ngram_cache). KV checkpoint/rollback. Grammar-constrained generation. Sampler profiles.</p>
-</div>
 <div class="flex flex-col border border-zinc-800/40 bg-zinc-900/20 rounded-lg px-5 py-5">
   <div class="flex items-baseline justify-between mb-3">
     <span class="font-mono text-zinc-400 text-sm font-medium">ion7-engram</span>
