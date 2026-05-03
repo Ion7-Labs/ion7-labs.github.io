@@ -83,11 +83,11 @@
 <a href="grammar/" class="group flex flex-col bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800/60 hover:border-zinc-600 rounded-lg px-5 py-5 transition-all">
   <div class="flex items-baseline justify-between mb-3">
     <span class="font-mono text-zinc-100 group-hover:text-white text-sm font-semibold transition-colors">ion7-grammar</span>
-    <span class="font-mono text-zinc-500 text-xs border border-zinc-700/60 px-2 py-0.5 rounded">beta v0.1</span>
+    <span class="font-mono text-zinc-500 text-xs border border-zinc-700/60 px-2 py-0.5 rounded">beta v0.2</span>
   </div>
-  <div class="flex flex-wrap gap-1 mb-3"><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">GBNF</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">JSON Schema</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">CRANE</span></div>
-  <p class="text-zinc-500 text-xs leading-relaxed mb-3 flex-1">GBNF grammar engine in pure Lua. JSON Schema draft-07, ERE &rarr; GBNF, tool-call schemas, enum whitelists, CRANE-style lazy grammar activation.</p>
-  <p class="text-zinc-700 text-xs leading-relaxed mb-4">GrammarContext for stateful SQL agents. DCCD for Qwen3/DeepSeek-R1 thinking models. Grammar composition algebra (union, sequence, wrap).</p>
+  <div class="flex flex-wrap gap-1 mb-3"><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">GBNF</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">ABNF</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">EBNF</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">JSON Schema</span><span class="font-mono text-zinc-700 text-xs bg-zinc-900 border border-zinc-800/60 px-1.5 py-0.5 rounded">LPeg</span></div>
+  <p class="text-zinc-500 text-xs leading-relaxed mb-3 flex-1">Grammar engine for LuaJIT. Eight input formats (regex / ABNF / EBNF / JSON Schema / type DSL / enum / tool / auto-detect) all yielding the same composable Grammar_obj.</p>
+  <p class="text-zinc-700 text-xs leading-relaxed mb-4">AST + LPeg-backed parsers. Per-seq Backtrack and DCCD (multi-tenant safe). GrammarContext for stateful SQL agents. Pure-Lua fuzzer. Composition algebra (union, sequence, wrap, interleave).</p>
   <span class="font-mono text-zinc-600 group-hover:text-zinc-300 text-xs transition-colors">API Reference &rarr;</span>
 </a>
 <a href="llm/" class="group flex flex-col bg-zinc-900/50 hover:bg-zinc-900 border border-zinc-800/60 hover:border-zinc-600 rounded-lg px-5 py-5 transition-all">
