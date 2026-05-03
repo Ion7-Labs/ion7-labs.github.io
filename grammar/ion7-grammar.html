@@ -53,7 +53,7 @@
   <ul class="space-y-px"><li><a href="ast.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">ast</a></li><li><a href="ast_nodes.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">nodes</a></li><li><a href="ast_builder.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">builder</a></li><li><a href="ast_compiler.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">compiler</a></li><li><a href="ast_walk.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">walk</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">from</p>
-  <ul class="space-y-px"><li><a href="from_regex.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">regex</a></li><li><a href="from_types.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">types</a></li><li><a href="from_dynamic.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">dynamic</a></li></ul>
+  <ul class="space-y-px"><li><a href="from_regex.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">regex</a></li><li><a href="from_abnf.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">abnf</a></li><li><a href="from_ebnf.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">ebnf</a></li><li><a href="from_types.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">types</a></li><li><a href="from_dynamic.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">dynamic</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">init</p>
   <ul class="space-y-px"><li><a href="init.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">init</a></li></ul>
@@ -111,8 +111,16 @@ local g2 = Grammar.from_json_schema({ type = "object",
     required = { "status" },
 })
 
+-- From an ABNF rulelist
+local g3 = Grammar.from_abnf([[
+    date = year "-" month "-" day
+    year = 4DIGIT
+    month = 2DIGIT
+    day = 2DIGIT
+]])
+
 -- Compose grammars
-local union = g:union(g2)
+local union   = g:union(g2)
 local wrapped = g:then_(Grammar.from_regex("\\d+"))</code></pre>
 <p class="text-zinc-600 text-xs font-mono uppercase tracking-widest mt-10 mb-6">Functions</p>
 <div class="flex flex-wrap gap-1.5 mb-8 pb-6 border-b border-zinc-800/50">
@@ -121,6 +129,9 @@ local wrapped = g:then_(Grammar.from_regex("\\d+"))</code></pre>
 <a href="#Grammar_from_json_schema" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_json_schema</a>
 <a href="#Grammar_from_type" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_type</a>
 <a href="#Grammar_from_regex" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_regex</a>
+<a href="#Grammar_from_abnf" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_abnf</a>
+<a href="#Grammar_from_ebnf" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_ebnf</a>
+<a href="#Grammar_from_auto" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_auto</a>
 <a href="#Grammar_from_enum" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_enum</a>
 <a href="#Grammar_from_json_enum" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_json_enum</a>
 <a href="#Grammar_from_tools" class="font-mono text-xs text-zinc-500 hover:text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 px-2.5 py-1 rounded transition-all">Grammar.from_tools</a>
@@ -194,6 +205,58 @@ local wrapped = g:then_(Grammar.from_regex("\\d+"))</code></pre>
 </div>
 </div>
 <div class="fn-divider"></div>
+<div id="Grammar_from_abnf" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_abnf</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from ABNF rulelist (RFC 5234 §4 syntax).
+See `ion7.grammar.from.abnf` for the supported subset and the
+documented differences from strict RFC 5234 (case sensitivity,
+incremental alternatives, prose values).</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_abnf</span><span class="text-zinc-700">(</span><span class="text-zinc-500">source, root</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">source</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">ABNF source.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500">Root rule name (default: first defined rule).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_ebnf" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_ebnf</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from EBNF rulelist (W3C-style — XML, JSON, SVG specs).
+See `ion7.grammar.from.ebnf` for the supported subset.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_ebnf</span><span class="text-zinc-700">(</span><span class="text-zinc-500">source, root</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">source</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">EBNF source.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500">Root rule name (default: first defined rule).</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
+<div id="Grammar_from_auto" class="scroll-mt-20">
+<h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_auto</h3>
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Detect the source format and dispatch to the right `from_*` constructor.
+
+Heuristics:
+  - Trimmed source starts with `{` → JSON Schema.
+  - Contains `::=` → W3C-style EBNF.
+  - Has a `name = body` line (no `::=` anywhere) → RFC 5234 ABNF.
+  - Otherwise → regex.
+
+The heuristic is best-effort; if you know the format ahead of time,
+prefer the explicit constructor.</p>
+<div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_auto</span><span class="text-zinc-700">(</span><span class="text-zinc-500">source, root</span><span class="text-zinc-700">)</span></div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">source</span><span class="font-mono text-zinc-700 w-28 shrink-0">string</span><span class="text-zinc-500">Grammar source in one of the supported formats.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500">Root rule name override.</span></div>
+</div>
+<div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>
+</div>
+</div>
+<div class="fn-divider"></div>
 <div id="Grammar_from_enum" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_enum</h3>
 <p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from value whitelist (longest-first, deduped).</p>
@@ -234,14 +297,15 @@ local wrapped = g:then_(Grammar.from_regex("\\d+"))</code></pre>
 <div class="fn-divider"></div>
 <div id="Grammar_from_json_schema_native" class="scroll-mt-20">
 <h3 class="text-sm font-mono font-semibold text-zinc-100 mb-2 tracking-tight">Grammar.from_json_schema_native</h3>
-<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from JSON Schema via the C++ libcommon backend (ion7-core required).
+<p class="text-zinc-400 text-sm leading-relaxed mb-4">Build from JSON Schema via the C++ libcommon backend.
 
-Prefer for schemas using $ref, allOf, anyOf, oneOf, or strict format
-validators. Falls back to from_json_schema() if ion7-core is unavailable.</p>
+Routes the schema through libllama's `json_schema_to_grammar` for
+canonical handling of `$ref`, `allOf`, `anyOf`, `oneOf`, and the
+format validators. Returns a raw GBNF grammar.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Grammar.from_json_schema_native</span><span class="text-zinc-700">(</span><span class="text-zinc-500">schema, root</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">schema</span><span class="font-mono text-zinc-700 w-28 shrink-0">string|table</span><span class="text-zinc-500"></span></div>
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500"></span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">schema</span><span class="font-mono text-zinc-700 w-28 shrink-0">string|table</span><span class="text-zinc-500">JSON Schema as string or Lua table.</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">root</span><span class="font-mono text-zinc-700 w-28 shrink-0">string?</span><span class="text-zinc-500">Root rule name (default: "root").</span></div>
 </div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/20"><span class="font-mono text-zinc-600 w-36 shrink-0">&rarr;&nbsp;Grammar_obj</span><span class="text-zinc-500 w-28 shrink-0"></span><span class="text-zinc-500"></span></div>

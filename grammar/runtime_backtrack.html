@@ -53,7 +53,7 @@
   <ul class="space-y-px"><li><a href="ast.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">ast</a></li><li><a href="ast_nodes.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">nodes</a></li><li><a href="ast_builder.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">builder</a></li><li><a href="ast_compiler.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">compiler</a></li><li><a href="ast_walk.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">walk</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">from</p>
-  <ul class="space-y-px"><li><a href="from_regex.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">regex</a></li><li><a href="from_types.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">types</a></li><li><a href="from_dynamic.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">dynamic</a></li></ul>
+  <ul class="space-y-px"><li><a href="from_regex.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">regex</a></li><li><a href="from_abnf.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">abnf</a></li><li><a href="from_ebnf.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">ebnf</a></li><li><a href="from_types.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">types</a></li><li><a href="from_dynamic.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">dynamic</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">init</p>
   <ul class="space-y-px"><li><a href="init.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">init</a></li></ul>
@@ -99,9 +99,12 @@
     <main class="flex-1 px-8 md:px-14 py-10 max-w-3xl w-full">
 <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">class</p>
 <h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">Backtrack</h1>
-<pre class="bg-zinc-900 border border-zinc-800 rounded-lg px-5 py-4 text-xs font-mono text-zinc-300 overflow-x-auto leading-relaxed mb-6"><code>local bt = Grammar.backtrack(ctx, vocab, sampler)
+<pre class="bg-zinc-900 border border-zinc-800 rounded-lg px-5 py-4 text-xs font-mono text-zinc-300 overflow-x-auto leading-relaxed mb-6"><code>local bt = Grammar.backtrack(ctx, vocab, sampler, {
+    seq_id = session.seq_id,
+    pos    = session.n_past,
+})
 
-bt:checkpoint("tbl")                -- save KV position
+bt:checkpoint("tbl")                -- save seq KV at this pos
 bt:forward(function(p) return p:find("%s") end)  -- gen until space
 bt:constrain("tbl", function(text)  -- validate; rollback if false
     return db:has_table(text:match("(%w+)$"))
@@ -128,7 +131,7 @@ local result = bt:run()</code></pre>
 <p class="text-zinc-400 text-sm leading-relaxed mb-4">Create a Backtrack session.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">Backtrack.new</span><span class="text-zinc-700">(</span><span class="text-zinc-500">ctx, vocab, sampler, opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ctx</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Context (snapshot support required).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ctx</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Context.</span></div>
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Vocab.</span></div>
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">sampler</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Sampler (grammar-constrained).</span></div>
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>

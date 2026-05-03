@@ -53,7 +53,7 @@
   <ul class="space-y-px"><li><a href="ast.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">ast</a></li><li><a href="ast_nodes.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">nodes</a></li><li><a href="ast_builder.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">builder</a></li><li><a href="ast_compiler.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">compiler</a></li><li><a href="ast_walk.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">walk</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">from</p>
-  <ul class="space-y-px"><li><a href="from_regex.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">regex</a></li><li><a href="from_types.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">types</a></li><li><a href="from_dynamic.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">dynamic</a></li></ul>
+  <ul class="space-y-px"><li><a href="from_regex.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">regex</a></li><li><a href="from_abnf.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">abnf</a></li><li><a href="from_ebnf.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">ebnf</a></li><li><a href="from_types.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">types</a></li><li><a href="from_dynamic.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">dynamic</a></li></ul>
 </div><div class="mb-5 px-2">
   <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-1.5 px-2">init</p>
   <ul class="space-y-px"><li><a href="init.html" class="block px-2 py-1.5 rounded text-zinc-500 hover:text-zinc-200 hover:bg-zinc-800/40 text-xs font-mono transition-colors">init</a></li></ul>
@@ -100,6 +100,7 @@
 <p class="text-zinc-700 text-xs font-mono uppercase tracking-widest mb-4">class</p>
 <h1 class="text-3xl font-semibold text-zinc-100 tracking-tight mb-4 font-mono">DCCD</h1>
 <pre class="bg-zinc-900 border border-zinc-800 rounded-lg px-5 py-4 text-xs font-mono text-zinc-300 overflow-x-auto leading-relaxed mb-6"><code>local dc = Grammar.dccd(ctx, vocab, {
+    seq_id            = session.seq_id,
     draft_sampler     = free_sampler,
     constrain_sampler = grammar_sampler,
     max_draft_tokens  = 128,
@@ -120,7 +121,7 @@ print(result.draft)  -- unconstrained draft for debugging</code></pre>
 <p class="text-zinc-400 text-sm leading-relaxed mb-4">Create a DCCD generator.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">DCCD.new</span><span class="text-zinc-700">(</span><span class="text-zinc-500">ctx, vocab, opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
-<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ctx</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Context (snapshot support required).</span></div>
+<div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">ctx</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Context.</span></div>
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">vocab</span><span class="font-mono text-zinc-700 w-28 shrink-0">any</span><span class="text-zinc-500">ion7-core Vocab.</span></div>
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table</span><span class="text-zinc-500"></span></div>
 </div>
@@ -140,8 +141,8 @@ print(result.draft)  -- unconstrained draft for debugging</code></pre>
 
 Implements the algorithm from arXiv:2603.03305 (Feb 2026).
 
-Requires ctx to already have the prompt decoded (n_past set correctly).
-Call after your pipeline has run ctx:decode(prompt_tokens).</p>
+Requires the configured seq to already hold the prompt — call after your
+pipeline has decoded the prompt tokens into that seq.</p>
 <div class="font-mono text-xs bg-zinc-900/80 border border-zinc-800/60 rounded-md px-4 py-3 mb-5 overflow-x-auto"><span class="text-zinc-500">DCCD:generate</span><span class="text-zinc-700">(</span><span class="text-zinc-500">opts</span><span class="text-zinc-700">)</span></div>
 <div class="mb-5 border border-zinc-800/40 rounded-md overflow-hidden text-xs">
 <div class="flex items-baseline gap-0 px-4 py-2 border-b border-zinc-800/30 last:border-0 bg-zinc-900/30"><span class="font-mono text-zinc-300 w-36 shrink-0">opts</span><span class="font-mono text-zinc-700 w-28 shrink-0">table?</span><span class="text-zinc-500"></span></div>
